@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import GoogleMapReact from "google-map-react"
+import EventCard from "../components/eventCard"
 
 const AnyReactComponent = ({ text }) => (
   <div
@@ -22,6 +23,7 @@ const EventTemplate = ({ data, pageContext, location }) => {
       <h1>{pageContext.node.name}</h1>
       <h4>@{pageContext.node.location.name}</h4>
       <h5>Information: {pageContext.node.information}</h5>
+      <EventCard />
       <div style={{ height: "70vh", width: "100%" }}>
         <GoogleMapReact
           bootstrapURLKeys={{
