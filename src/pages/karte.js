@@ -12,6 +12,7 @@ const KartePage = () => {
     if (navigator.geolocation) {
       navigator.geolocation.watchPosition(position => {
         setLocation(position)
+        console.log(position)
       })
     }
   }, [])
@@ -19,7 +20,9 @@ const KartePage = () => {
   return (
     <Layout>
       <SEO title="Karte" />
-      <h4>Wenn du mir erlaubst, sag ich dir wo du stehst.</h4>
+      <h4>
+        Wenn du mir erlaubst, sag ich dir so ganz grob ungefähr wo du stehst ;).
+      </h4>
       {location && location.coords && (
         <p>
           Latitude is: {location.coords.latitude} <br />
