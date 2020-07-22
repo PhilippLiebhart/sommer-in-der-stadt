@@ -1,0 +1,25 @@
+.navWrapper {
+  width: 100%;
+  background-color: white;
+}
+.navItems li {
+  color: darkgray;
+  margin: 2px;
+  cursor: pointer;
+  display: inline;
+  font-weight: bold;
+  font-size: 18px;
+  border-right: 2px solid darkblue;
+  padding: 0 10px 0 10px;
+
+  text-decoration: none;
+}
+.navItems a {
+  text-decoration: none;
+  font-family: impact;
+}
+a:hover,
+a:active,
+a:visited {
+  color: darkgray;
+}
