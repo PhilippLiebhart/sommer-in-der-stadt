@@ -184,6 +184,7 @@ textarea {
   -webkit-appearance: button;
   font: inherit;
 }
+
 html {
   font: 112.5%/1.45em georgia, serif;
   box-sizing: border-box;
@@ -220,6 +221,7 @@ img {
   padding-top: 0;
   margin-bottom: 1.45rem;
 }
+
 h1 {
   margin-left: 0;
   margin-right: 0;
@@ -344,6 +346,7 @@ ul {
   list-style-position: outside;
   list-style-image: none;
 }
+
 ol {
   margin-left: 1.45rem;
   margin-right: 0;
