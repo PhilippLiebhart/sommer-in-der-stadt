@@ -3,10 +3,7 @@ import PropTypes from "prop-types"
 import React from "react"
 
 const Header = ({ siteTitle }) => (
-  <header
-    id="header"
-    
-  >
+  <header id="header">
     <div
       style={{
         margin: `0 auto`,
