@@ -2,19 +2,8 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import GoogleMapReact from "google-map-react"
-import EventCard from "../components/eventCard"
-
-const AnyReactComponent = ({ text }) => (
-  <div
-    style={{
-      backgroundColor: "red",
-      color: "red",
-      width: "20px",
-      height: "20px",
-      borderRadius: "10px",
-    }}
-  ></div>
-)
+import EventCard from "../components/eventCard/eventCard"
+import Marker from "../components/marker"
 
 const EventTemplate = ({ data, pageContext, location }) => {
   return (
@@ -35,7 +24,7 @@ const EventTemplate = ({ data, pageContext, location }) => {
           }}
           defaultZoom={17}
         >
-          <AnyReactComponent
+          <Marker
             lat={pageContext.node.location.latitude}
             lng={pageContext.node.location.longitude}
           />

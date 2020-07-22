@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import GoogleMapReact from "google-map-react"
-
-const AnyReactComponent = ({ text }) => <div>{text}</div>
+import Marker from "../components/marker"
 
 const KartePage = () => {
   const [location, setLocation] = useState()
@@ -41,7 +40,7 @@ const KartePage = () => {
             }}
             defaultZoom={17}
           >
-            <AnyReactComponent
+            <Marker
               lat={location.coords.latitude}
               lng={location.coords.longitude}
               text="Du bist hier"
