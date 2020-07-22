@@ -1,45 +1,45 @@
 import React from "react"
 
-import "./FerrisWheel.css"
+import "./ferrisWheel.css"
 
 const FerrisWheel = () => {
   return (
-    <div class="ferris_wheel">
-      <div class="wheel_wrap">
-        <div class="wheel">
-          <span></span>
-          <span></span>
-          <span></span>
+    <div className="ferris_wheel">
+      <div className="wheel_wrap">
+        <div className="wheel">
+          <span />
+          <span />
+          <span />
         </div>
       </div>
-      <div class="buckets">
+      <div className="buckets">
         <div>
-          <span></span>
+          <span />
         </div>
         <div>
-          <span></span>
+          <span />
         </div>
         <div>
-          <span></span>
+          <span />
         </div>
         <div>
-          <span></span>
+          <span />
         </div>
         <div>
-          <span></span>
+          <span />
         </div>
         <div>
-          <span></span>
+          <span />
         </div>
         <div>
-          <span></span>
+          <span />
         </div>
         <div>
-          <span></span>
+          <span />
         </div>
       </div>
-      <div class="stand">
-        <span></span>
+      <div className="stand">
+        <span />
       </div>
     </div>
   )
