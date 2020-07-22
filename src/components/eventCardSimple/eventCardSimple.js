@@ -9,10 +9,7 @@ const EventCard = props => {
   return (
     <div className="simpleCard">
       <div className="card_top">
-        <img
-          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/343086/h8fnwL1.png"
-          alt=""
-        />
+        <img src={`${props.imgURL}`} alt="" />
       </div>
       <div className="card_bottom">
         <h1 className="eventCardSimpleTitle">{props.eventTitle}</h1>

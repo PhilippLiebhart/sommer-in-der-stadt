@@ -12,7 +12,17 @@ const EventTemplate = ({ data, pageContext, location }) => {
       <h1>{pageContext.node.name}</h1>
       <h4>@{pageContext.node.location.name}</h4>
       <h5>Information: {pageContext.node.information}</h5>
-      <EventCard />
+      <EventCard
+        key={pageContext.node.id}
+        detailsSlug={pageContext.node.slug}
+        eventTitle={pageContext.node.name}
+        eventDate={pageContext.node.openingHours.day}
+        eventLength="to define"
+        eventTypeName={pageContext.node.typeName}
+        eventLocation={pageContext.node.location.name}
+        eventInfo={pageContext.node.information}
+        imgURL={pageContext.node.imgURL}
+      />
       <div style={{ height: "70vh", width: "100%" }}>
         <GoogleMapReact
           bootstrapURLKeys={{

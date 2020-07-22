@@ -1,12 +1,13 @@
 {
-  "typeName": "concert",
-  "slug": "metallica",
-  "name": "Metallica",
+  "imgURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQqKanucdXp8jGZ7aY9c9X9d7xJ1f2ky3axJw&usqp=CAU",
+  "typeName": "attraction",
+  "slug": "torwand",
+  "name": "Torwandschiessen",
   "location": {
     "name": "Theatron",
     "latitude": 48.1731592,
     "longitude": 11.5466036
   },
   "openingHours": [{ "day": "saturday", "start": 8, "end": 18 }],
-  "information": "Please book tickets in advanced"
+  "information": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lore"
 }

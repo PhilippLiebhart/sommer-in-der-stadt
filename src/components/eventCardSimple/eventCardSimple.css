@@ -22,7 +22,7 @@
 }
 .simpleCard .card_top img {
   width: 100% !important;
-  height: 100px;
+  height: auto;
   margin-bottom: 0;
   border-radius: 10px 0 0 10px;
   -webkit-border-radius: 10px 0 0 10px;

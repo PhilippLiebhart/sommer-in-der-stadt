@@ -4,7 +4,8 @@ body {
   height: 100vh;
 }
 body .card {
-  width: 800px;
+  width: 90%;
+  margin: 0 auto 50px auto !important;
   height: 400px;
   background: transparent;
   /* position: absolute;
@@ -26,13 +27,14 @@ body .card_left {
   background: transparent;
 }
 body .card_left img {
-  width: 100%;
-  height: auto;
+  height: 400px;
+
   border-radius: 10px 0 0 10px;
   -webkit-border-radius: 10px 0 0 10px;
   -moz-border-radius: 10px 0 0 10px;
   position: relative;
 }
+
 body .card_right {
   width: 60%;
   float: left;

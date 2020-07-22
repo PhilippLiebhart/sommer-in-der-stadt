@@ -10,19 +10,27 @@ const Navigation = props => {
         <ul className="navItems">
           <li>
             {" "}
-            <Link to="/">Home</Link>
+            <Link to="/" activeClassName="active">
+              Home
+            </Link>
           </li>
           <li>
             {" "}
-            <Link to="/karte/">Karte</Link>
+            <Link to="/karte/" activeClassName="active">
+              Karte
+            </Link>
           </li>
           <li>
             {" "}
-            <Link to="/events/">Events</Link>
+            <Link to="/events/" activeClassName="active">
+              Events
+            </Link>
           </li>
           <li>
             {" "}
-            <Link to="/attractions/">Attraktionen</Link>
+            <Link to="/attractions/" activeClassName="active">
+              Attraktionen
+            </Link>
           </li>
         </ul>
       </nav>

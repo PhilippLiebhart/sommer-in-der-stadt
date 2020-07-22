@@ -13,6 +13,7 @@ exports.createPages = ({ graphql, actions }) => {
         allEventsJson {
           edges {
             node {
+              imgURL
               id
               name
               location {

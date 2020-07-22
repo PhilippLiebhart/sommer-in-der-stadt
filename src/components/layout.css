@@ -8,6 +8,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.eventListWrapper {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
 
 article,
 aside,
@@ -637,7 +642,9 @@ pre tt:after {
 #header {
   padding: 0 0;
   background-color: #002484;
-  background-image: linear-gradient(
+  height: auto;
+
+  /* background-image: linear-gradient(
       60deg,
       rgba(255, 255, 255, 0.8) 25%,
       transparent 25%,
@@ -652,7 +659,13 @@ pre tt:after {
       transparent 75%,
       rgba(255, 255, 255, 0.8) 75%,
       rgba(255, 255, 255, 0.8)
-    );
-  background-size: 70px 120px;
+    ); */
+  background-image: url("../images/header.jpg");
+  background-size: 100% auto;
+  background-repeat: initial;
+  background-position-y: 250px;
   margin-bottom: 50px;
+}
+.headerImg {
+  text-align: center;
 }

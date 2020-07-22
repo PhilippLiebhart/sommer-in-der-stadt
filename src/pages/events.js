@@ -16,7 +16,7 @@ const EventsPage = ({ data }) => {
         eventTypeName={event.node.typeName}
         eventLocation={event.node.location.name}
         eventInfo={event.node.information}
-        imgUrl=""
+        imgURL={event.node.imgURL}
       />
     )
   })
@@ -25,6 +25,7 @@ const EventsPage = ({ data }) => {
     <Layout>
       <div className="attractionsWrapper">
         <h1>EVENTs page</h1>
+
         {eventList}
       </div>
     </Layout>
@@ -38,6 +39,7 @@ export const query = graphql`
     allEventsJson {
       edges {
         node {
+          imgURL
           id
           name
           location {

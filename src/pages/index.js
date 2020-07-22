@@ -5,8 +5,45 @@ import Layout from "../components/layout"
 import EventCard from "../components/eventCard/eventCard"
 import EventCardSimple from "../components/eventCardSimple/eventCardSimple"
 
+// Import carousel files
+import Slider from "react-slick"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
+
 const IndexPage = ({ data }) => {
   console.log("DATA INDEX", data)
+
+  var settings = {
+    dots: true,
+
+    pauseOnHover: true,
+    adaptiveHeight: true,
+    infinite: true,
+    speed: 600,
+    autoplay: false,
+    autoplaySpeed: 6000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  }
+
+  const sliderData = data.allEventsJson.edges.map(event => {
+    console.log("HULAAAA", event.node.imgURL)
+    return (
+      <EventCard
+        key={event.node.id}
+        detailsSlug={event.node.slug}
+        eventTitle={event.node.name}
+        eventDate={event.node.openingHours.day}
+        eventLength="to define"
+        eventTypeName={event.node.typeName}
+        eventLocation={event.node.location.name}
+        eventInfo={event.node.information}
+        imgURL={event.node.imgURL}
+      />
+    )
+  })
+
+  // ===========
 
   const eventList = data.allEventsJson.edges.map(event => {
     return (
@@ -19,7 +56,7 @@ const IndexPage = ({ data }) => {
         eventTypeName={event.node.typeName}
         eventLocation={event.node.location.name}
         eventInfo={event.node.information}
-        imgUrl=""
+        imgURL={event.node.imgURL}
       />
     )
   })
@@ -28,8 +65,9 @@ const IndexPage = ({ data }) => {
     <Layout>
       <h1>Nächste Veranstaltungen:</h1>
 
-      <EventCard />
-      {eventList}
+      <Slider {...settings}>{sliderData}</Slider>
+
+      <div className="eventListWrapper">{eventList}</div>
     </Layout>
   )
 }
@@ -41,6 +79,7 @@ export const query = graphql`
     allEventsJson {
       edges {
         node {
+          imgURL
           id
           name
           location {

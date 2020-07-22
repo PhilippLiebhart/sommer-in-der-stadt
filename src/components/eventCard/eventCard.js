@@ -1,20 +1,21 @@
 import React from "react"
+import { Link } from "gatsby"
+
 import "./eventCard.css"
 
 const EventCard = props => {
+  const slug = "/" + props.detailsSlug
+
   return (
     <div className="card">
       <div className="card_left">
-        <img
-          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/343086/h8fnwL1.png"
-          alt=""
-        />
+        <img src={`${props.imgURL}`} alt="" />
       </div>
       <div className="card_right">
         <h1>{props.eventTitle}</h1>
         <div className="card_right__details">
           <ul>
-            <li>Art: {props.typeName}</li>
+            <li>Art: {props.eventTypeName}</li>
             <li>Datum: {props.eventDate}</li>
           </ul>
           <ul>
@@ -26,13 +27,7 @@ const EventCard = props => {
             <p>{props.eventInfo}</p>
           </div>
           <div className="card_right__button">
-            <a
-              href="https://www.youtube.com/watch?v=ot6C1ZKyiME"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Go to event
-            </a>
+            <Link to={slug}>Go to event</Link>
           </div>
         </div>
       </div>
