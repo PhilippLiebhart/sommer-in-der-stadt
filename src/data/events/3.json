@@ -1,0 +1,12 @@
+{
+  "typeName": "concert",
+  "slug": "spider-murphy-gang",
+  "name": "Spider Murphy Gang",
+  "location": {
+    "name": "Orleansplatz",
+    "latitude": 48.1731592,
+    "longitude": 11.5466036
+  },
+  "openingHours": [{ "day": "saturday", "start": 8, "end": 18 }],
+  "information": "Please book tickets in advanced"
+}

@@ -1,22 +1,60 @@
 import React from "react"
+import { graphql } from "gatsby"
+
 import Layout from "../components/layout"
 import EventCardSimple from "../components/eventCardSimple/eventCardSimple"
 
-const EventsPage = props => {
+const EventsPage = ({ data }) => {
+  const eventList = data.allEventsJson.edges.map(event => {
+    return (
+      <EventCardSimple
+        key={event.node.id}
+        detailsSlug={event.node.slug}
+        eventTitle={event.node.name}
+        eventDate={event.node.openingHours.day}
+        eventLength="to define"
+        eventTypeName={event.node.typeName}
+        eventLocation={event.node.location.name}
+        eventInfo={event.node.information}
+        imgUrl=""
+      />
+    )
+  })
+
   return (
     <Layout>
       <div className="attractionsWrapper">
         <h1>EVENTs page</h1>
-
-        <EventCardSimple />
-        <EventCardSimple />
-        <EventCardSimple />
-        <EventCardSimple />
-        <EventCardSimple />
-        <EventCardSimple />
+        {eventList}
       </div>
     </Layout>
   )
 }
 
 export default EventsPage
+
+export const query = graphql`
+  query EventsQuery {
+    allEventsJson {
+      edges {
+        node {
+          id
+          name
+          location {
+            name
+            latitude
+            longitude
+          }
+          information
+          openingHours {
+            day
+            end
+            start
+          }
+          typeName
+          slug
+        }
+      }
+    }
+  }
+`

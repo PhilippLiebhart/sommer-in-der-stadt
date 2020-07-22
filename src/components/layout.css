@@ -8,6 +8,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 article,
 aside,
 details,
@@ -21,6 +22,12 @@ nav,
 section,
 summary {
   display: block;
+}
+.footer {
+  width: 100%;
+  position: relative;
+  display: flex;
+  top: 50px;
 }
 audio,
 canvas,
@@ -200,6 +207,9 @@ html {
   box-sizing: inherit;
 }
 body {
+  background-color: #eee;
+  background-image: url("https://www.transparenttextures.com/patterns/az-subtle.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   color: hsla(0, 0%, 0%, 0.8);
   font-family: georgia, serif;
   font-weight: normal;

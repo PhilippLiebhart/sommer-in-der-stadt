@@ -5,10 +5,9 @@ import EventCardSimple from "../components/eventCardSimple/eventCardSimple"
 
 import "./attractions.css"
 import FerrisWheel from "../components/ferrisWheel/ferrisWheel"
-import { graphql } from "gatsby"
+// import { graphql } from "gatsby"
 
 const AttractionsPage = ({ data }) => {
-  console.log("PAGE CONTEXT", data)
   return (
     <Layout>
       <div className="attractionsWrapper">
@@ -23,28 +22,28 @@ const AttractionsPage = ({ data }) => {
 
 export default AttractionsPage
 
-export const query = graphql`
-  query EventsQuery {
-    allEventsJson {
-      edges {
-        node {
-          id
-          name
-          location {
-            name
-            latitude
-            longitude
-          }
-          information
-          openingHours {
-            day
-            end
-            start
-          }
-          typeName
-          slug
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query EventsQuery {
+//     allEventsJson {
+//       edges {
+//         node {
+//           id
+//           name
+//           location {
+//             name
+//             latitude
+//             longitude
+//           }
+//           information
+//           openingHours {
+//             day
+//             end
+//             start
+//           }
+//           typeName
+//           slug
+//         }
+//       }
+//     }
+//   }
+// `

@@ -34,7 +34,9 @@ const Layout = ({ children }) => {
         }}
       >
         <main>{children}</main>
-        <footer>© {new Date().getFullYear()}, Built by BarPhi</footer>
+        <footer className="footer">
+          © {new Date().getFullYear()}, Built by BarPhi
+        </footer>
       </div>
     </>
   )

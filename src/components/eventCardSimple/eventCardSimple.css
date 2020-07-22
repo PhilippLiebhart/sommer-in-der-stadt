@@ -1,6 +1,5 @@
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 .simpleCard {
-  background: #e2e2e2;
   width: 250px;
   float: left;
   margin: 10px;
@@ -32,7 +31,7 @@
 }
 .simpleCard .card_bottom {
   width: 100%;
-  padding: 10px 0;
+  padding: 10px;
   background: #000000;
 
   border-radius: 0 10px 10px 0;
@@ -45,7 +44,7 @@
   font-weight: 400;
   text-align: left;
   font-size: 18px;
-  margin: 10px 0 0 0;
+  margin: 10px 0;
   padding: 0 0 0 40px;
   letter-spacing: 1px;
 }

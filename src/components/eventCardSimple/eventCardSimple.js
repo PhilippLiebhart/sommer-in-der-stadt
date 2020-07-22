@@ -1,7 +1,11 @@
 import React from "react"
+import { Link } from "gatsby"
+
 import "./eventCardSimple.css"
 
 const EventCard = props => {
+  const slug = "/" + props.detailsSlug
+
   return (
     <div className="simpleCard">
       <div className="card_top">
@@ -14,7 +18,7 @@ const EventCard = props => {
         <h1 className="eventCardSimpleTitle">{props.eventTitle}</h1>
         <div className="card_bottom__details">
           <ul>
-            <li>Art: {props.eventKind}</li>
+            <li>Art: {props.eventTypeName}</li>
             <li>Datum: {props.eventDate}</li>
             <li>Ort: {props.eventLocation}</li>
             <li>Dauer: {props.eventLength}</li>
@@ -24,13 +28,7 @@ const EventCard = props => {
             {/* <p>{props.eventInfo}</p> */}
           </div>
           <div className="card_bottom__button">
-            <a
-              href="https://www.youtube.com/watch?v=ot6C1ZKyiME"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Go to event
-            </a>
+            <Link to={slug}>Go to event</Link>
           </div>
         </div>
       </div>
@@ -42,7 +40,7 @@ EventCard.defaultProps = {
   eventTitle: "Blumentopf",
   eventDate: "2020-08-10",
   eventLength: "3 Stunden",
-  eventKind: "Konzert",
+  eventTypeName: "Konzert",
   eventLocation: "Haidhausen Museum",
   eventInfo:
     "INFO TEXT INFO TEXT INFO TEXT INFO TEXT INFO TEXT INFO TEXT INFO TEXT INFO TEXT INFO TEXT INFO TEXT INFO TEXT INFO TEXT INFO TEXT ",
