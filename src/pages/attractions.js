@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from "../components/layout"
 
-const AttractionsPage = ({ data, pageContext, location }) => {
+const AttractionsPage = ({ pageContext }) => {
   console.log("page context", pageContext.name)
   return (
     <Layout>
