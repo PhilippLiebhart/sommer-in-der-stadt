@@ -1,0 +1,15 @@
+{
+  "typeName": "attraction",
+  "slug": "riesenrad-marienplatz",
+  "name": "Riesenrad",
+  "location": {
+    "name": "Marienplatz",
+    "latitude": 48.1373932,
+    "longitude": 11.5754485
+  },
+  "openingHours": [
+    { "day": "monday", "start": 8, "end": 18 },
+    { "day": "tuesday", "start": 8, "end": 18 }
+  ],
+  "information": "Bla Blub Informationen"
+}

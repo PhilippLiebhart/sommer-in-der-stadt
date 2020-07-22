@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import GoogleMapReact from "google-map-react"
-
-const AnyReactComponent = ({ text }) => <div>{text}</div>
+import Marker from "../components/marker"
 
 const KartePage = () => {
   const [location, setLocation] = useState()
@@ -12,6 +11,7 @@ const KartePage = () => {
     if (navigator.geolocation) {
       navigator.geolocation.watchPosition(position => {
         setLocation(position)
+        console.log(position)
       })
     }
   }, [])
@@ -19,7 +19,9 @@ const KartePage = () => {
   return (
     <Layout>
       <SEO title="Karte" />
-      <h4>Wenn du mir erlaubst, sag ich dir wo du stehst.</h4>
+      <h4>
+        Wenn du mir erlaubst, sag ich dir so ganz grob ungefähr wo du stehst ;).
+      </h4>
       {location && location.coords && (
         <p>
           Latitude is: {location.coords.latitude} <br />
@@ -38,7 +40,7 @@ const KartePage = () => {
             }}
             defaultZoom={17}
           >
-            <AnyReactComponent
+            <Marker
               lat={location.coords.latitude}
               lng={location.coords.longitude}
               text="Du bist hier"
