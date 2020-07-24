@@ -19,7 +19,7 @@ const Navigation = props => {
           <Link to="/karte/" activeClassName="active">
             <li>Karte</li>
           </Link>
-          <Link to="/karte/" activeClassName="active">
+          <Link to="/events/" activeClassName="active">
             <li>Events</li>
           </Link>
           <Link to="/attractions/" activeClassName="active">
