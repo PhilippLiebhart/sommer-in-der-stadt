@@ -1,8 +1,4 @@
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
-body {
-  width: 98%;
-  height: 100vh;
-}
 body .card {
   width: 90%;
   margin: 0 auto 50px auto !important;

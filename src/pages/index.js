@@ -15,7 +15,7 @@ const IndexPage = ({ data }) => {
 
   var settings = {
     dots: true,
-
+    centerMode: true,
     pauseOnHover: true,
     adaptiveHeight: true,
     infinite: true,
