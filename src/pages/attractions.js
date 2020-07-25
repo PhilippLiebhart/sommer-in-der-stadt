@@ -11,7 +11,6 @@ const AttractionsPage = ({ data }) => {
   const attractions = data.allEventsJson.edges
     .filter(event => event.node.typeName === "attraction")
     .map(event => {
-      console.log("HAAAAAAAA", event)
 
       return (
         <EventCardSimple
@@ -32,8 +31,8 @@ const AttractionsPage = ({ data }) => {
   return (
     <Layout>
       <div className="attractionsWrapper">
-        <h1>Attractions page</h1>
-        <p>Riesenrad, etc etc</p>
+        <h1>Attraktionen und Stände</h1>
+
         <FerrisWheel />
         {attractions}
       </div>

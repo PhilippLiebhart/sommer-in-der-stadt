@@ -1,3 +1,9 @@
+const dotenv = require('dotenv')
+
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config()
+}
+
 module.exports = {
   siteMetadata: {
     title: `Kulturtage Au/Haidhausen`,
@@ -32,6 +38,13 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `egg5a20ipss7`,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

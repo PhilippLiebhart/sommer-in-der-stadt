@@ -8,11 +8,12 @@
 
 .ferris_wheel {
   box-sizing: unset;
-  position: absolute;
-  top: 40%;
-  left: 5%;
-  transform: translateX(-50%) translateY(-50%) scale(1.4, 1.4);
+  position: relative;
+  /* top: 40%;
+  left: 5%; */
+  transform: translateX(0%) translateY(0%) scale(0.4, 0.4);
   border: 0;
+  z-index: 0;
 }
 
 .wheel_wrap {

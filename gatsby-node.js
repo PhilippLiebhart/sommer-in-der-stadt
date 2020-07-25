@@ -9,30 +9,38 @@ exports.createPages = ({ graphql, actions }) => {
   // Variables can be added as the second function parameter
   return graphql(
     `
-      query EventsQuery {
-        allEventsJson {
-          edges {
-            node {
-              imgURL
-              id
-              name
-              location {
-                name
-                latitude
-                longitude
+    {
+      allContentfulEvent {
+        totalCount
+        edges {
+          node {
+            childContentfulEventInformationRichTextNode {
+              json
+              content {
+                content {
+                  value
+                }
               }
-              information
-              openingHours {
-                day
-                end
-                start
+            }
+            eventType
+            imgUrl {
+              fluid {
+                src
               }
-              typeName
-              slug
+            }
+            id
+            date(formatString: "")
+            locationName
+            name
+            slug
+            location {
+              lat
+              lon
             }
           }
         }
       }
+    }  
     `
   ).then(result => {
     if (result.errors) {
@@ -40,15 +48,44 @@ exports.createPages = ({ graphql, actions }) => {
     }
 
     // Create blog post pages.
-    result.data.allEventsJson.edges.forEach(edge => {
+    const events = result.data.allContentfulEvent.edges
+    events.forEach(edge => {
       createPage({
         // Path for this page — required
-        path: `${edge.node.slug}`,
+        path: edge.node.slug,
         component: eventTemplate,
         context: {
           node: edge.node,
+          slug: edge.node.slug,
         },
       })
     })
   })
 }
+
+
+
+// query EventsQuery {
+//   allEventsJson {
+//     edges {
+//       node {
+//         imgURL
+//         id
+//         name
+//         location {
+//           name
+//           latitude
+//           longitude
+//         }
+//         information
+//         openingHours {
+//           day
+//           end
+//           start
+//         }
+//         typeName
+//         slug
+//       }
+//     }
+//   }
+// }

@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 import React from "react"
-import Navigation from "./Navigation/navigation"
+import Navigation from "./navigation/navigation"
 
 const Header = ({ siteTitle }) => {
   const logoImg = require("../images/logo_header.png")

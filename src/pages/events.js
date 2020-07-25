@@ -5,18 +5,18 @@ import Layout from "../components/layout"
 import EventCardSimple from "../components/eventCardSimple/eventCardSimple"
 
 const EventsPage = ({ data }) => {
-  const eventList = data.allEventsJson.edges.map(event => {
+  const eventList = data.allContentfulEvent.edges.map(event => {
     return (
       <EventCardSimple
         key={event.node.id}
         detailsSlug={event.node.slug}
         eventTitle={event.node.name}
-        eventDate={event.node.openingHours.day}
+        eventDate={event.node.date}
         eventLength="to define"
-        eventTypeName={event.node.typeName}
-        eventLocation={event.node.location.name}
-        eventInfo={event.node.information}
-        imgURL={event.node.imgURL}
+        eventTypeName={event.node.eventType}
+        eventLocation={event.node.locationName}
+        eventInfo={JSON.stringify(event.node.childContentfulEventInformationRichTextNode)}
+        imgURL={event.node.imgUrl.fluid.src}
       />
     )
   })
@@ -36,25 +36,33 @@ export default EventsPage
 
 export const query = graphql`
   query EventsQuery {
-    allEventsJson {
+    allContentfulEvent {
+      totalCount
       edges {
         node {
-          imgURL
+          childContentfulEventInformationRichTextNode {
+            json
+            content {
+              content {
+                value
+              }
+            }
+          }
+          eventType
+          imgUrl {
+            fluid {
+              src
+            }
+          }
           id
+          date(formatString: "")
+          locationName
           name
-          location {
-            name
-            latitude
-            longitude
-          }
-          information
-          openingHours {
-            day
-            end
-            start
-          }
-          typeName
           slug
+          location {
+            lat
+            lon
+          }
         }
       }
     }
