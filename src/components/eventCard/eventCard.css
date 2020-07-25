@@ -30,6 +30,10 @@ body .card_left img {
   -moz-border-radius: 10px 0 0 10px;
   position: relative;
 }
+.card span {
+  color: orange;
+  font-weight: 800;
+}
 
 body .card_right {
   width: 60%;
@@ -111,16 +115,16 @@ body .card_right__review p {
   color: white;
   font-family: "Montserrat", sans-serif;
   font-size: 12px;
-  padding: 0 40px 0 40px;
+  padding: 0px 0 0 20px;
   letter-spacing: 1px;
   margin: 10px 0 10px 0;
-  line-height: 20px;
+  line-height: 15px;
 }
 body .card_right__review a {
   text-decoration: none;
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
-  padding: 0 0 0 40px;
+
   color: #ffda00;
   margin: 0;
 }

@@ -50,6 +50,8 @@ const IndexPage = ({ data }) => {
   // ===========
 
   const eventList = data.allContentfulEvent.edges.map(event => {
+    const rich = event.node.childContentfulEventInformationRichTextNode.json;
+    const riched = documentToReactComponents(rich)
     return (
       <EventCardSimple
         key={event.node.id}
@@ -59,7 +61,7 @@ const IndexPage = ({ data }) => {
         eventLength="to define"
         eventTypeName={event.node.eventType}
         eventLocation={event.node.locationName}
-        eventInfo={JSON.stringify(event.node.childContentfulEventInformationRichTextNode)}
+        eventInfo={riched}
         imgURL={event.node.imgUrl.fluid.src}
       />
     )

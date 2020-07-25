@@ -14,18 +14,20 @@ const EventCard = props => {
       <div className="card_bottom">
         <h1 className="eventCardSimpleTitle">{props.eventTitle}</h1>
         <div className="card_bottom__details">
-          <ul>
-            <li>Art: {props.eventTypeName}</li>
-            <li>Datum: {props.eventDate}</li>
-            <li>Ort: {props.eventLocation}</li>
-            <li>Dauer: {props.eventLength}</li>
-          </ul>
+          <div><ul>
+            <li><span>Was? </span>{props.eventTypeName}</li>
+            <li><span>Wann? </span>{props.eventDate}</li>
+            <li><span>Wo? </span>{props.eventLocation}</li>
+            <li><span>Dauer: </span>{props.eventLength}</li>
+          </ul></div>
+
 
           <div className="card_bottom__review">
-            {/* <p>{props.eventInfo}</p> */}
+            <h6>Info: </h6>
+            <p>{props.eventInfo}</p>
           </div>
           <div className="card_bottom__button">
-            <Link to={slug}>Go to event</Link>
+            {props.detailsSlug ? <Link to={slug}>Go to event</Link> : null}
           </div>
         </div>
       </div>

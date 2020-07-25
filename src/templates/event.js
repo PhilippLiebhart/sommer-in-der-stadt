@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import GoogleMapReact from "google-map-react"
-import EventCard from "../components/eventCard/eventCard"
+import EventCardSimple from "../components/eventCardSimple/eventCardSimple"
 import Marker from "../components/marker"
 
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
@@ -18,9 +18,9 @@ const EventTemplate = ({ data, pageContext, location }) => {
       <h1>{pageContext.node.name}</h1>
       <h4>@{pageContext.node.locationName}</h4>
       <h5>Information: {pageContext.node.information}</h5>
-      <EventCard
+      <EventCardSimple
         key={pageContext.node.id}
-        detailsSlug={pageContext.node.slug}
+        // detailsSlug={pageContext.node.slug}
         eventTitle={pageContext.node.name}
         eventDate={pageContext.node.date}
         eventLength="to define"
@@ -29,7 +29,7 @@ const EventTemplate = ({ data, pageContext, location }) => {
         eventInfo={riched}
         imgURL={pageContext.node.imgUrl.fluid.src}
       />
-      <div style={{ height: "70vh", width: "100%" }}>
+      <div style={{ height: "70vh", width: "100%", float: "left" }}>
         <GoogleMapReact
           bootstrapURLKeys={{
             key: "AIzaSyCrFJ7AhxG30WBcTLrm10qLCcpByXjutxI",

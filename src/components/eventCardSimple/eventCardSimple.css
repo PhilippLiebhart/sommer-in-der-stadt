@@ -1,8 +1,9 @@
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 .simpleCard {
-  width: 340px;
-  /* float: left; */
-  margin: 10px 0;
+  width: 95%;
+  max-width: 400px;
+  float: left;
+  margin: 10px 10px;
 }
 .simpleCard {
   height: auto;
@@ -29,6 +30,7 @@
   -moz-border-radius: 10px 0 0 10px;
   position: relative;
 }
+
 .simpleCard .card_bottom {
   width: 100%;
   padding: 10px;
@@ -45,23 +47,37 @@
   text-align: left;
   font-size: 18px;
   margin: 10px 0;
-  padding: 0 0 0 40px;
+  padding: 0 0 0 0px;
   letter-spacing: 1px;
+}
+.simpleCard .card_bottom h6 {
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  text-align: left;
+  font-size: 14px;
+  margin: 10px 0;
+  padding: 0 0 0 0px;
+  letter-spacing: 1px;
+}
+.simpleCard .card_bottom span {
+  color: orange;
+  font-weight: 800;
 }
 
 .simpleCard .card_bottom__details ul {
   list-style-type: none;
-  padding: 0 0 0 40px;
+  padding: 0 0 0 0px;
   margin: 7px 0;
 }
 .simpleCard .card_bottom__details ul li {
-  /* display: inline; */
+  display: inline;
   color: #e3e3e3;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 12px;
   padding: 0 0px 0 0;
-  margin: 0;
+  margin: 0 8px 0 0;
 }
 .simpleCard .card_bottom__rating__stars {
   position: relative;
@@ -125,21 +141,20 @@
   color: white;
   font-family: "Montserrat", sans-serif;
   font-size: 12px;
-  padding: 0 40px 0 40px;
+  padding: 0 0 0 10px;
   letter-spacing: 1px;
   margin: 10px 0 10px 0;
-  line-height: 20px;
+  line-height: 10px;
 }
 .simpleCard .card_bottom__review a {
   text-decoration: none;
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
-  padding: 0 0 0 40px;
+
   color: #ffda00;
-  margin: 0;
 }
 .simpleCard .card_bottom__button {
-  padding: 0 0 0 40px;
+  padding: 0 0 0 10px;
   margin: 10px 0 10px 0;
 }
 .simpleCard .card_bottom__button a {

@@ -14,14 +14,13 @@ const EventCard = props => {
       <div className="card_right">
         <h1>{props.eventTitle}</h1>
         <div className="card_right__details">
-          <ul>
-            <li>Art: {props.eventTypeName}</li>
-            <li>Datum: {props.eventDate}</li>
-          </ul>
-          <ul>
-            <li>Ort: {props.eventLocation}</li>
-            <li>Dauer: {props.eventLength}</li>
-          </ul>
+          <div><ul>
+            <li><span>Was? </span>{props.eventTypeName}</li>
+            <li><span>Wann? </span>{props.eventDate}</li>
+          </ul><ul>
+              <li><span>Wo? </span>{props.eventLocation}</li>
+              <li><span>Dauer: </span>{props.eventLength}</li>
+            </ul></div>
 
           <div className="card_right__review">
             <p>{props.eventInfo}</p>

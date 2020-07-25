@@ -3,9 +3,17 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import EventCardSimple from "../components/eventCardSimple/eventCardSimple"
+import Navigation from "../components/navigation/navigation"
+
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+
 
 const EventsPage = ({ data }) => {
+
+
   const eventList = data.allContentfulEvent.edges.map(event => {
+    const rich = event.node.childContentfulEventInformationRichTextNode.json;
+    const riched = documentToReactComponents(rich)
     return (
       <EventCardSimple
         key={event.node.id}
@@ -15,7 +23,7 @@ const EventsPage = ({ data }) => {
         eventLength="to define"
         eventTypeName={event.node.eventType}
         eventLocation={event.node.locationName}
-        eventInfo={JSON.stringify(event.node.childContentfulEventInformationRichTextNode)}
+        eventInfo={riched}
         imgURL={event.node.imgUrl.fluid.src}
       />
     )
@@ -23,8 +31,10 @@ const EventsPage = ({ data }) => {
 
   return (
     <Layout>
+      <Navigation />
       <div className="attractionsWrapper">
         <h1>EVENTs page</h1>
+
 
         {eventList}
       </div>
