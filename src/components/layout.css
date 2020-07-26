@@ -660,12 +660,19 @@ pre tt:after {
       rgba(255, 255, 255, 0.8) 75%,
       rgba(255, 255, 255, 0.8)
     ); */
-  background-image: url("../images/header.jpg");
-  background-size: 100% 100%;
-  /* background-repeat: initial; */
+  background-image: url("../images/header2.jpg");
+  background-size: auto 280px;
+
   background-position-y: 200px;
+  background-position-x: 640px;
   margin-bottom: 5px;
 }
 .headerImg {
   text-align: center;
+  /* -webkit-box-shadow: 10px 10px 72px -39px rgba(143, 143, 143, 1);
+  -moz-box-shadow: 10px 10px 72px -39px rgba(143, 143, 143, 1);
+  box-shadow: 10px 10px 72px -39px rgba(143, 143, 143, 1); */
+}
+.headerImg img {
+  margin-top: 60px;
 }

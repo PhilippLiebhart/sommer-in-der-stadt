@@ -13,6 +13,7 @@ const EventsPage = ({ data }) => {
     eventData: data.allContentfulEvent.edges,
     startDate: "2020-07-01T20:00",
     endDate: "2020-12-21T20:00",
+    month: null
   })
 
   // FILTER BY eventType
@@ -27,16 +28,15 @@ const EventsPage = ({ data }) => {
   }
 
   // Filter by Month
-
-  const filterByMonth = (start, end) => {
+  const filterByMonth = (start, end, currMonth) => {
     const monthFilterData = data.allContentfulEvent.edges
     const filteredByMonth = monthFilterData.filter(event => {
       const startDate = start
       const endDate = end
-      return event.node.date >= start && event.node.date <= end
+      return event.node.date >= startDate && event.node.date <= endDate
     })
 
-    setState({ ...state, eventData: filteredByMonth })
+    setState({ ...state, eventData: filteredByMonth, month: currMonth })
   }
 
   console.log(
@@ -79,13 +79,33 @@ const EventsPage = ({ data }) => {
         <div onClick={() => filterHandler("sonstiges", data)}>Sonstiges--</div>
 
         <div
-          onClick={() => filterByMonth("2020-07-01T20:00", "2020-08-15T20:00")}
-        >
-          ----- Juni / Juli / August
+          onClick={() => filterByMonth(
+            "2020-07-01T00:01", "2020-07-31T23:59", "Juli")}>
+          -----Juli
+        </div>
+        <div
+          onClick={() => filterByMonth(
+            "2020-08-01T00:01", "2020-08-31T23:59", "August")}>
+          -----August
+        </div>
+        <div
+          onClick={() => filterByMonth(
+            "2020-09-01T00:01", "2020-09-31T23:59", "September")}>
+          -----September
+        </div>
+        <div
+          onClick={() => filterByMonth(
+            "2020-10-01T00:01", "2020-10-31T23:59", "Oktober")}>
+          -----Oktober
+        </div>
+        <div
+          onClick={() => filterByMonth(
+            "2020-11-01T00:01", "2020-11-31T23:59", "November")}>
+          -----November
         </div>
 
-        <h1>EVENTs page</h1>
 
+        {state.month ? <h2>Events im {state.month}</h2> : <h2>Alle Events</h2>}
         {eventList}
       </div>
     </Layout>
