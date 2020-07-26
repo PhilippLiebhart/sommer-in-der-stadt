@@ -38,7 +38,7 @@ const EventCard = props => {
 
           <div className="card_bottom__review">
             <h6>Info: </h6>
-            <p>{props.eventInfo}</p>
+            <div>{props.eventInfo}</div>
           </div>
           <div className="card_bottom__button">
             {props.detailsSlug ? <Link to={slug}>Go to event</Link> : null}
