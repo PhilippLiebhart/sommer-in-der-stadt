@@ -11,7 +11,6 @@ const AttractionsPage = ({ data }) => {
   const attractions = data.allEventsJson.edges
     .filter(event => event.node.typeName === "attraction")
     .map(event => {
-
       return (
         <EventCardSimple
           key={event.node.id}
@@ -44,25 +43,33 @@ export default AttractionsPage
 
 export const query = graphql`
   query AttractionsQuery {
-    allEventsJson {
+    allContentfulEvent {
+      totalCount
       edges {
         node {
-          imgURL
+          childContentfulEventInformationRichTextNode {
+            json
+            content {
+              content {
+                value
+              }
+            }
+          }
+          eventType
+          imgUrl {
+            fluid {
+              src
+            }
+          }
           id
+          date(formatString: "")
+          locationName
           name
-          location {
-            name
-            latitude
-            longitude
-          }
-          information
-          openingHours {
-            day
-            end
-            start
-          }
-          typeName
           slug
+          location {
+            lat
+            lon
+          }
         }
       }
     }

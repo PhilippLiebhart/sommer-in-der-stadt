@@ -13,14 +13,28 @@ const EventCard = props => {
       </div>
       <div className="card_bottom">
         <h1 className="eventCardSimpleTitle">{props.eventTitle}</h1>
+        <span>topevent? {JSON.stringify(props.topEvent)}</span>
         <div className="card_bottom__details">
-          <div><ul>
-            <li><span>Was? </span>{props.eventTypeName}</li>
-            <li><span>Wann? </span>{props.eventDate}</li>
-            <li><span>Wo? </span>{props.eventLocation}</li>
-            <li><span>Dauer: </span>{props.eventLength}</li>
-          </ul></div>
-
+          <div>
+            <ul>
+              <li>
+                <span>Was? </span>
+                {props.eventTypeName}
+              </li>
+              <li>
+                <span>Wann? </span>
+                {props.eventDate}
+              </li>
+              <li>
+                <span>Wo? </span>
+                {props.eventLocation}
+              </li>
+              <li>
+                <span>Dauer: </span>
+                {props.eventLength}
+              </li>
+            </ul>
+          </div>
 
           <div className="card_bottom__review">
             <h6>Info: </h6>
