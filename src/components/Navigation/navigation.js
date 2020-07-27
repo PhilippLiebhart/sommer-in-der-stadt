@@ -1,90 +1,64 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
-
-import "./navigation.css"
+import "./navigation.scss"
 
 const Navigation = props => {
+  const logoImg = require("../../images/muenchner-kindl.png")
+  const [menuIsOpen, setMenuIsOpen] = useState(false)
+  const toggleMenu = () => {
+    setMenuIsOpen(!menuIsOpen)
+  }
+
   return (
-    <nav>
-      <div className="container">
-        <input id="responsive-menu" type="checkbox" />
-        <label htmlFor="responsive-menu">
-          <span id="menu-icon" />
-        </label>
-        <div id="overlay" />
-        <ul>
-          <Link to="/">
-            <li>Home</li>
+    <nav
+      className="navbar is-transparent is-fixed-top"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div className="navbar-brand">
+        <Link className="navbar-item" to="/new">
+          <img src={logoImg} height={"100%"} />
+        </Link>
+        <a
+          role="button"
+          className={"navbar-burger burger " + (menuIsOpen ? "is-active" : "")}
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample"
+          onClick={() => toggleMenu()}
+        >
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+        </a>
+      </div>
+      <div
+        id="navbarBasicExample"
+        className={"navbar-menu " + (menuIsOpen ? "is-active" : "")}
+      >
+        <div className="navbar-start">
+          <Link to="/" className="navbar-item">
+            Start
           </Link>
-          <Link to="/karte/" activeClassName="active">
-            <li>Karte</li>
+
+          <Link to="/events" className="navbar-item">
+            Veranstaltungen
           </Link>
-          <Link to="/events/" activeClassName="active">
-            <li>Events</li>
+
+          <Link to="/attractions" className="navbar-item">
+            Attraktionen
           </Link>
-          <Link to="/attractions/" activeClassName="active">
-            <li>Attraktionen</li>
+
+          <Link to="/attractions" className="navbar-item">
+            Essen & Trinken
           </Link>
-        </ul>
-        {/* <ul id="social-media">
-          <li>
-            <a href="https://dribbble.com/erinesullivan">
-              <i className="fab fa-dribbble" />
-              <span className="screen-reader-text">Dribbble</span>
-            </a>
-          </li>
-          <li>
-            <a href="http://codepen.io/erinesullivan/">
-              <i className="fab fa-codepen" />
-              <span className="screen-reader-text">CodePen</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com/erin_e_sullivan">
-              <i className="fab fa-twitter" />
-              <span className="screen-reader-text">Twitter</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/erinesullivan1">
-              <i className="fab fa-linkedin" />
-              <span className="screen-reader-text">LinkedIn</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.instagram.com/erin_e_sullivan/">
-              <i className="fab fa-instagram" />
-              <span className="screen-reader-text">Instagram</span>
-            </a>
-          </li>
-        </ul> */}
+
+          <Link to="/kultur" className="navbar-item">
+            Kultur
+          </Link>
+        </div>
       </div>
     </nav>
-
-    // <nav role="navigation" className="menuWrapper">
-    //   <div id="menuToggle">
-    //     <input type="checkbox" />
-
-    //     <span />
-    //     <span />
-    //     <span />
-
-    //     <ul id="menu">
-    //       <Link to="/">
-    //         <li>Home</li>
-    //       </Link>
-    //       <Link to="/karte/" activeClassName="active">
-    //         <li>Karte</li>
-    //       </Link>
-    //       <Link to="/karte/" activeClassName="active">
-    //         <li>Events</li>
-    //       </Link>
-    //       <Link to="/karte/" activeClassName="active">
-    //         <li>Attraktionen</li>
-    //       </Link>
-    //     </ul>
-    //   </div>
-    // </nav>
   )
 }
 
