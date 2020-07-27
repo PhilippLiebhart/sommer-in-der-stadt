@@ -17,7 +17,7 @@ const Navigation = props => {
     >
       <div className="navbar-brand">
         <Link className="navbar-item" to="/new">
-          <img src={logoImg} height={"100%"} />
+          <img src={logoImg} height={"100%"} alt="Logo" />
         </Link>
         <a
           role="button"

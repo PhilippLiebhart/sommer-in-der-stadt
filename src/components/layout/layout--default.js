@@ -1,11 +1,7 @@
-import { graphql, useStaticQuery } from "gatsby"
+import "normalize.css"
 import PropTypes from "prop-types"
 import React from "react"
-
-import "normalize.css"
 import "../style.scss"
-import "./layout.scss"
-import Navigation from "../navigation/navigation"
 import Header from "./header"
 
 const LayoutDefault = ({ children }) => {
