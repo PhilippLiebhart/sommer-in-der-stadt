@@ -2,11 +2,21 @@ import React, { useState } from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import EventCardSimple from "../components/eventCardSimple/eventCardSimple"
+// import EventCardSimple from "../components/eventCardSimple/eventCardSimple"
 import Navigation from "../components/navigation/navigation"
 
 import Moment from "react-moment"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import Card from "../components/card/card"
+
+const months = {
+  July: { start: "2020-07-01T00:01", end: "2020-07-31T00:00" },
+  August: { start: "2020-08-01T00:01", end: "2020-08-31T00:00" },
+  September: { start: "2020-09-01T00:01", end: "2020-09-31T00:00" },
+  Oktober: { start: "2020-10-01T00:01", end: "2020-10-31T00:00" },
+}
+
+const eventTypes = ["Musik", "Konzert", "Lesung", "Kino", "sonstiges"]
 
 const EventsPage = ({ data }) => {
   const [state, setState] = useState({
@@ -14,14 +24,18 @@ const EventsPage = ({ data }) => {
     startDate: "2020-07-01T20:00",
     endDate: "2020-12-21T20:00",
     month: null,
+    eventCount: data.allContentfulEvent.totalCount,
   })
 
   // FILTER BY eventType
-  const filterHandler = (name, data) => {
-    const dataToFilter = data.allContentfulEvent.edges
+  const filterByEventType = name => {
+    console.log("eventData", state.eventData)
+    const dataToFilter = state.eventData
     const filteredData = dataToFilter.filter(event => {
+      console.log(event)
       return event.node.eventType === name
     })
+
     setState({ ...state, eventData: filteredData })
   }
 
@@ -37,6 +51,44 @@ const EventsPage = ({ data }) => {
     setState({ ...state, eventData: filteredByMonth, month: currMonth })
   }
 
+  //FILTERMENU
+  const filterMenu = Object.keys(months).map(igKey => {
+    return (
+      <li
+        style={{
+          display: "inline",
+          backgroundColor: "gray",
+          margin: "4px",
+          padding: "4px",
+        }}
+        key={igKey}
+        onClick={() =>
+          filterByMonth(months[igKey].start, months[igKey].end, igKey)
+        }
+      >
+        {igKey}
+      </li>
+    )
+  })
+
+  // eventtypes menu
+  const eventTypeMenu = eventTypes.map((event, index) => {
+    return (
+      <li
+        style={{
+          display: "inline",
+          backgroundColor: "gray",
+          margin: "4px",
+          padding: "4px",
+        }}
+        key={index}
+        onClick={() => filterByEventType(event)}
+      >
+        {event}
+      </li>
+    )
+  })
+
   // EVENTS MAP START ----
   let eventList = state.eventData.map(event => {
     const richtextJSON =
@@ -45,18 +97,20 @@ const EventsPage = ({ data }) => {
     const dateToFormat = event.node.date
 
     return (
-      <EventCardSimple
-        key={event.node.id}
-        detailsSlug={event.node.slug}
-        eventTitle={event.node.name}
-        eventDate={<Moment date={dateToFormat} format="D MMM YYYY HH:mm" />}
-        eventLength="to define"
-        topEvent={event.node.topEvent}
-        eventTypeName={event.node.eventType}
-        eventLocation={event.node.locationName}
-        eventInfo={richTextToHtml}
-        imgURL={event.node.imgUrl.fluid.src}
-      />
+      <div className="column" key={event.node.id}>
+        <Card
+          key={event.node.id}
+          detailsSlug={event.node.slug}
+          eventTitle={event.node.name}
+          eventDate={<Moment date={dateToFormat} format="D MMM YYYY HH:mm" />}
+          eventLength="to define"
+          topEvent={event.node.topEvent}
+          eventTypeName={event.node.eventType}
+          eventLocation={event.node.locationName}
+          eventInfo={richTextToHtml}
+          imgURL={event.node.imgUrl.fluid.src}
+        />
+      </div>
     )
   })
   // ---- EVENTS MAP ENDE |||
@@ -64,51 +118,18 @@ const EventsPage = ({ data }) => {
   return (
     <Layout>
       <Navigation />
-      <div className="attractionsWrapper">
-        <h1>Filter:</h1>
-        <div onClick={() => filterHandler("Musik", data)}>Musik --</div>
-        <div onClick={() => filterHandler("Konzert", data)}>Konzert--</div>
-        <div onClick={() => filterHandler("sonstiges", data)}>Sonstiges--</div>
-
-        <div
-          onClick={() =>
-            filterByMonth("2020-07-01T00:01", "2020-07-31T23:59", "Juli")
-          }
-        >
-          -----Juli
-        </div>
-        <div
-          onClick={() =>
-            filterByMonth("2020-08-01T00:01", "2020-08-31T23:59", "August")
-          }
-        >
-          -----August
-        </div>
-        <div
-          onClick={() =>
-            filterByMonth("2020-09-01T00:01", "2020-09-31T23:59", "September")
-          }
-        >
-          -----September
-        </div>
-        <div
-          onClick={() =>
-            filterByMonth("2020-10-01T00:01", "2020-10-31T23:59", "Oktober")
-          }
-        >
-          -----Oktober
-        </div>
-        <div
-          onClick={() =>
-            filterByMonth("2020-11-01T00:01", "2020-11-31T23:59", "November")
-          }
-        >
-          -----November
-        </div>
-
+      <section className="section">
+        <h1>Filter by Month:</h1>
+        <ul style={{ margin: "10px auto" }}>{filterMenu}</ul>
+        <ul>{eventTypeMenu}</ul>
+        <p>Events insgesamt: {state.eventData.length}</p>
+      </section>
+      <section className="section">
         {state.month ? <h2>Events im {state.month}</h2> : <h2>Alle Events</h2>}
-        {eventList}
-      </div>
+        <div className="container">
+          <div className="columns">{eventList}</div>
+        </div>
+      </section>{" "}
     </Layout>
   )
 }
