@@ -1,9 +1,9 @@
 import "normalize.css"
 import PropTypes from "prop-types"
 import React from "react"
-import "./style.scss"
-import Header from "./header"
 import Footer from "./footer"
+import Header from "./header"
+import "./style.scss"
 
 const Layout = ({ children }) => {
   // const data = useStaticQuery(graphql`
@@ -18,6 +18,8 @@ const Layout = ({ children }) => {
 
   return (
     <>
+      <Header />
+
       <main>{children}</main>
 
       <Footer />
