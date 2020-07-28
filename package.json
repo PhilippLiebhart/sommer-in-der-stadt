@@ -1,9 +1,11 @@
 {
   "name": "gatsby-starter-default",
   "private": true,
+  "homepage": "http://kulturtage.muenchen-gschichtn.de/",
   "description": "Summa in da City",
   "version": "0.1.0",
   "author": "Philipp Liebhart, Barry Norman",
+  "main": "index.js",
   "dependencies": {
     "@contentful/gatsby-transformer-contentful-richtext": "^13.1.0",
     "@contentful/rich-text-react-renderer": "^14.1.1",
@@ -42,10 +44,10 @@
   ],
   "license": "0BSD",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"

@@ -12,7 +12,8 @@ const Card = () => {
       </div>
       <div className="card-content card-content--overlayed">
         <div className="content">
-          Cassandra Steen
+          EVENTTYPE
+          <br /> Cassandra Steen
           <br />
           <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time>
           <br />

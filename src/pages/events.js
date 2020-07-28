@@ -1,4 +1,4 @@
-import React, { useState, setState } from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
@@ -13,7 +13,7 @@ const EventsPage = ({ data }) => {
     eventData: data.allContentfulEvent.edges,
     startDate: "2020-07-01T20:00",
     endDate: "2020-12-21T20:00",
-    month: null
+    month: null,
   })
 
   // FILTER BY eventType
@@ -79,31 +79,40 @@ const EventsPage = ({ data }) => {
         <div onClick={() => filterHandler("sonstiges", data)}>Sonstiges--</div>
 
         <div
-          onClick={() => filterByMonth(
-            "2020-07-01T00:01", "2020-07-31T23:59", "Juli")}>
+          onClick={() =>
+            filterByMonth("2020-07-01T00:01", "2020-07-31T23:59", "Juli")
+          }
+        >
           -----Juli
         </div>
         <div
-          onClick={() => filterByMonth(
-            "2020-08-01T00:01", "2020-08-31T23:59", "August")}>
+          onClick={() =>
+            filterByMonth("2020-08-01T00:01", "2020-08-31T23:59", "August")
+          }
+        >
           -----August
         </div>
         <div
-          onClick={() => filterByMonth(
-            "2020-09-01T00:01", "2020-09-31T23:59", "September")}>
+          onClick={() =>
+            filterByMonth("2020-09-01T00:01", "2020-09-31T23:59", "September")
+          }
+        >
           -----September
         </div>
         <div
-          onClick={() => filterByMonth(
-            "2020-10-01T00:01", "2020-10-31T23:59", "Oktober")}>
+          onClick={() =>
+            filterByMonth("2020-10-01T00:01", "2020-10-31T23:59", "Oktober")
+          }
+        >
           -----Oktober
         </div>
         <div
-          onClick={() => filterByMonth(
-            "2020-11-01T00:01", "2020-11-31T23:59", "November")}>
+          onClick={() =>
+            filterByMonth("2020-11-01T00:01", "2020-11-31T23:59", "November")
+          }
+        >
           -----November
         </div>
-
 
         {state.month ? <h2>Events im {state.month}</h2> : <h2>Alle Events</h2>}
         {eventList}

@@ -7,10 +7,9 @@ import Marker from "../components/marker"
 
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
-
 const EventTemplate = ({ data, pageContext, location }) => {
   console.log("[[PAGE CONTECT IN EVENT TEMPLATE]]", pageContext)
-  const rich = pageContext.node.childContentfulEventInformationRichTextNode.json;
+  const rich = pageContext.node.childContentfulEventInformationRichTextNode.json
   const riched = documentToReactComponents(rich)
   return (
     <Layout>
