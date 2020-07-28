@@ -12,6 +12,7 @@ const Hero = () => {
         src={headerBackgroundImg}
       />
       <div className="hero-body">
+        <div className="hero-banderole">Sommer in der Stadt</div>
         <img
           alt="Logo Kulturtage AU Haishausen"
           className="logo"
