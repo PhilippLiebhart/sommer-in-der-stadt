@@ -9,38 +9,39 @@ exports.createPages = ({ graphql, actions }) => {
   // Variables can be added as the second function parameter
   return graphql(
     `
-    {
-      allContentfulEvent {
-        totalCount
-        edges {
-          node {
-            childContentfulEventInformationRichTextNode {
-              json
-              content {
+      {
+        allContentfulEvent {
+          totalCount
+          edges {
+            node {
+              childContentfulEventInformationRichTextNode {
+                json
                 content {
-                  value
+                  content {
+                    value
+                  }
                 }
               }
-            }
-            eventType
-            imgUrl {
-              fluid {
-                src
+              eventType
+              imgUrl {
+                fluid {
+                  src
+                }
               }
-            }
-            id
-            date(formatString: "")
-            locationName
-            name
-            slug
-            location {
-              lat
-              lon
+              id
+              date(formatString: "")
+              topEvent
+              locationName
+              name
+              slug
+              location {
+                lat
+                lon
+              }
             }
           }
         }
       }
-    }  
     `
   ).then(result => {
     if (result.errors) {
@@ -56,14 +57,12 @@ exports.createPages = ({ graphql, actions }) => {
         component: eventTemplate,
         context: {
           node: edge.node,
-          slug: edge.node.slug,
+          slug: `${edge.node.slug}`,
         },
       })
     })
   })
 }
-
-
 
 // query EventsQuery {
 //   allEventsJson {
