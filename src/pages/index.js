@@ -53,7 +53,6 @@ const IndexPage = ({ data }) => {
     .map(event => {
       const rich = event.node.childContentfulEventInformationRichTextNode.json
       const riched = documentToReactComponents(rich)
-      console.log(event)
       return (
         <div>
           <Card key={event.node.id} />

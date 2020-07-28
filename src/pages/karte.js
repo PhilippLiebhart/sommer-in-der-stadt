@@ -11,7 +11,6 @@ const KartePage = () => {
     if (navigator.geolocation) {
       navigator.geolocation.watchPosition(position => {
         setLocation(position)
-        console.log(position)
       })
     }
   }, [])

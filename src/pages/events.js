@@ -20,10 +20,8 @@ const EventsPage = ({ data }) => {
   const filterHandler = (name, data) => {
     const dataToFilter = data.allContentfulEvent.edges
     const filteredData = dataToFilter.filter(event => {
-      console.log("FILTER RUNNING", event.node.eventType)
       return event.node.eventType === name
     })
-    console.log("!!!!!!!!!!!!!filteredData", filteredData)
     setState({ ...state, eventData: filteredData })
   }
 
@@ -38,12 +36,6 @@ const EventsPage = ({ data }) => {
 
     setState({ ...state, eventData: filteredByMonth, month: currMonth })
   }
-
-  console.log(
-    "%c MY STATE",
-    "background: green; color: white; display: block;",
-    filterByMonth
-  )
 
   // EVENTS MAP START ----
   let eventList = state.eventData.map(event => {
