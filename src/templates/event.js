@@ -32,7 +32,7 @@ const EventTemplate = ({ data, pageContext, location }) => {
           eventInfo={riched}
           imgURL={pageContext.node.imgUrl.fluid.src}
         />
-        <div style={{ height: "70vh", width: "100%", float: "left" }}>
+        <div style={{ height: "50vh", width: "100%", display: "block" }}>
           <GoogleMapReact
             bootstrapURLKeys={{
               key: "AIzaSyCrFJ7AhxG30WBcTLrm10qLCcpByXjutxI",
