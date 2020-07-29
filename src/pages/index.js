@@ -137,7 +137,7 @@ const IndexPage = ({ data }) => {
         <div className="container">
           <div className="columns">
             <div className="column">
-              <h1 className="title mt-6">Servus und Herzlich Willkommen!</h1>
+              <h1 className="title mt-5">Servus und Herzlich Willkommen!</h1>
             </div>
           </div>
           <div className="columns">
