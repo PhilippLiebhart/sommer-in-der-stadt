@@ -34,7 +34,9 @@
     "react-moment": "^0.9.7",
     "react-slick": "^0.27.0",
     "slick-carousel": "^1.8.1",
-    "react-responsive-carousel": "^3.2.9"
+    "react-responsive-carousel": "^3.2.9",
+    "ftp-deploy": "^2.3.7",
+    "minimist": "^1.2.5"
   },
   "devDependencies": {
     "prettier": "2.0.5"
@@ -47,6 +49,7 @@
     "start": "npm run develop",
     "develop": "gatsby develop",
     "build": "gatsby build",
+    "deploy": "node deployToFTP.js",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
