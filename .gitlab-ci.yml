@@ -1,0 +1,16 @@
+image: node:12.18.0
+cache:
+  paths:
+    - node_modules/
+    - .cache/
+    - public/
+pre:
+  script:
+    - yarn install --frozen-lockfile
+    - yarn build
+    - npm run deploy -- --pw=$PIPPO_FTP_PW
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
