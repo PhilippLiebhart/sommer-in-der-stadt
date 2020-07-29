@@ -1,7 +1,8 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { graphql } from "gatsby"
 import Moment from "react-moment"
-
+import moment from "moment"
+// Moment.globalMoment = moment
 import React, { useState } from "react"
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
@@ -50,10 +51,21 @@ const IndexPage = ({ data }) => {
     ],
   }
 
+  const today = moment()
+  console.log("HULA", today)
+  console.log(
+    "HAHAHAHA",
+    data.allContentfulEvent.edges.filter(
+      event => 0 > today.diff(moment(event.node.date))
+    )
+  )
+
+  const allEvents = data.allContentfulEvent.edges
+    .filter(event => today.diff(moment(event.node.date)))
+    .sort((a, b) => new Date(a.node.date) - new Date(b.node.date))
+
   const [loadedEventList, setLoadedEventList] = useState({
-    allEvents: data.allContentfulEvent.edges.sort(
-      (a, b) => new Date(a.node.date) - new Date(b.node.date)
-    ),
+    allEvents,
     loadedEvents: data.allContentfulEvent.edges.slice(0, 2),
     loadCount: 0,
   })
@@ -69,9 +81,6 @@ const IndexPage = ({ data }) => {
 
   const loadMoreHandler = () => {
     // const start = 0
-    console.log("HULAAAAA", loadedEventList.loadCount)
-    console.log("EEEEEEE", loadedEventList.loadedEvents)
-
     const end = loadedEventList.loadCount + 5
     const updatedLoadedEvents = loadedEventList.allEvents.slice(0, end)
 
@@ -95,7 +104,7 @@ const IndexPage = ({ data }) => {
           key={event.node.id}
           detailsSlug={event.node.slug}
           eventTitle={event.node.name}
-          eventDate={<Moment date={dateToFormat} format="D MMM YYYY HH:mm" />}
+          eventDate={<Moment date={dateToFormat} format="D.M.YY HH:mm [Uhr]" />}
           eventLength="to define"
           topEvent={event.node.topEvent}
           eventTypeName={event.node.eventType}
@@ -159,7 +168,14 @@ const IndexPage = ({ data }) => {
           </div>
           <div className="columns">
             {eventData}
-            <span onClick={() => loadMoreHandler()}>mehr laden</span>
+            <div>
+              <button
+                className="button is-fullwidth is-warning"
+                onClick={() => loadMoreHandler()}
+              >
+                mehr laden
+              </button>
+            </div>
           </div>
         </div>
       </section>
