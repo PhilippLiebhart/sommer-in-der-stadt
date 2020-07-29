@@ -1,6 +1,8 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { graphql } from "gatsby"
-import React from "react"
+import Moment from "react-moment"
+
+import React, { useState } from "react"
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
@@ -48,17 +50,86 @@ const IndexPage = ({ data }) => {
     ],
   }
 
-  const sliderData = data.allContentfulEvent.edges
-    .filter(event => !event.node.topEvent)
+  const [loadedEventList, setLoadedEventList] = useState({
+    allEvents: data.allContentfulEvent.edges.sort(
+      (a, b) => new Date(a.node.date) - new Date(b.node.date)
+    ),
+    loadedEvents: data.allContentfulEvent.edges.slice(0, 2),
+    loadCount: 0,
+  })
+
+  // const sortEvents = () => {
+  //   let myArr = loadedEventList.allEvents
+  //   let sortedEvents = myArr.sort(
+  //     (a, b) => new Date(a.node.date) - new Date(b.node.date)
+  //   )
+
+  //   setLoadedEventList({ ...loadedEventList, loadedEvents: sortedEvents })
+  // }
+
+  const loadMoreHandler = () => {
+    // const start = 0
+    console.log("HULAAAAA", loadedEventList.loadCount)
+    console.log("EEEEEEE", loadedEventList.loadedEvents)
+
+    const end = loadedEventList.loadCount + 5
+    const updatedLoadedEvents = loadedEventList.allEvents.slice(0, end)
+
+    setLoadedEventList({
+      ...loadedEventList,
+      loadedEvents: updatedLoadedEvents,
+      loadCount: end,
+    })
+  }
+
+  const sliderData = loadedEventList.allEvents
+    .sort((a, b) => new Date(a.node.date) - new Date(b.node.date))
+    .filter(event => event.node.topEvent)
     .map(event => {
-      const rich = event.node.childContentfulEventInformationRichTextNode.json
-      const riched = documentToReactComponents(rich)
+      const richtextJSON =
+        event.node.childContentfulEventInformationRichTextNode.json
+      const richTextToHtml = documentToReactComponents(richtextJSON)
+      const dateToFormat = event.node.date
       return (
-        <div>
-          <Card key={event.node.id} />
-        </div>
+        <Card
+          key={event.node.id}
+          detailsSlug={event.node.slug}
+          eventTitle={event.node.name}
+          eventDate={<Moment date={dateToFormat} format="D MMM YYYY HH:mm" />}
+          eventLength="to define"
+          topEvent={event.node.topEvent}
+          eventTypeName={event.node.eventType}
+          eventLocation={event.node.locationName}
+          eventInfo={richTextToHtml}
+          imgURL={event.node.imgUrl.fluid.src}
+        />
       )
     })
+
+  // EVENTS MAP START ----
+  let eventData = loadedEventList.loadedEvents.map(event => {
+    const richtextJSON =
+      event.node.childContentfulEventInformationRichTextNode.json
+    const richTextToHtml = documentToReactComponents(richtextJSON)
+    const dateToFormat = event.node.date
+
+    return (
+      <div className="column" key={event.node.id}>
+        <Card
+          detailsSlug={event.node.slug}
+          eventTitle={event.node.name}
+          eventDate={<Moment date={dateToFormat} format="D MMM YYYY HH:mm" />}
+          eventLength="to define"
+          topEvent={event.node.topEvent}
+          eventTypeName={event.node.eventType}
+          eventLocation={event.node.locationName}
+          eventInfo={richTextToHtml}
+          imgURL={event.node.imgUrl.fluid.src}
+        />
+      </div>
+    )
+  })
+  // ---- EVENTS MAP ENDE |||
 
   return (
     <Layout>
@@ -71,20 +142,13 @@ const IndexPage = ({ data }) => {
           </div>
           <div className="columns">
             <div className="column">
-              <h5 className="subtitle is-5">Die HIGHlights</h5>
+              <h5 className="subtitle is-5">Die Highlights</h5>
             </div>
           </div>
         </div>
       </section>
       <div className="container-fluid">
-        <Slider {...settings}>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-        </Slider>
+        <Slider {...settings}>{sliderData}</Slider>
       </div>
       <section className="section">
         <div className="container">
@@ -94,18 +158,8 @@ const IndexPage = ({ data }) => {
             </div>
           </div>
           <div className="columns">
-            <div className="column">
-              <Card />
-            </div>
-            <div className="column">
-              <Card />
-            </div>
-            <div className="column">
-              <Card />
-            </div>
-            <div className="column">
-              <Card />
-            </div>
+            {eventData}
+            <span onClick={() => loadMoreHandler()}>mehr laden</span>
           </div>
         </div>
       </section>
