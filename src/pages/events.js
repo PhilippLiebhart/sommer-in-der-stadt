@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
-// import EventCardSimple from "../components/eventCardSimple/eventCardSimple"
 import Navigation from "../components/navigation/navigation"
 
 import Moment from "react-moment"
@@ -20,7 +19,9 @@ const eventTypes = ["Musik", "Konzert", "Lesung", "Kino", "sonstiges"]
 
 const EventsPage = ({ data }) => {
   const [state, setState] = useState({
-    eventData: data.allContentfulEvent.edges,
+    eventData: data.allContentfulEvent.edges.sort(
+      (a, b) => new Date(a.node.date) - new Date(b.node.date)
+    ),
     startDate: "2020-07-01T20:00",
     endDate: "2020-12-21T20:00",
     month: null,
@@ -101,7 +102,7 @@ const EventsPage = ({ data }) => {
           key={event.node.id}
           detailsSlug={event.node.slug}
           eventTitle={event.node.name}
-          eventDate={<Moment date={dateToFormat} format="D MMM YYYY HH:mm" />}
+          eventDate={<Moment date={dateToFormat} format="D.M.YY HH:mm [Uhr]" />}
           eventLength="to define"
           topEvent={event.node.topEvent}
           eventTypeName={event.node.eventType}
