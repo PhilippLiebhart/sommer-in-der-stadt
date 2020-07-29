@@ -8,7 +8,7 @@ const Card = props => {
       <li
         style={{
           display: "inline",
-          backgroundColor: "gray",
+          backgroundColor: "orange",
           padding: "0px 7px",
           fontSize: "12px",
           margin: "2px",
@@ -23,24 +23,30 @@ const Card = props => {
   const slug = "/" + props.detailsSlug
 
   return (
-    <div className="card">
-      <div className="card-image">
-        <figure className="image is-4by3">
-          <img src={`${props.imgURL}`} alt="" />
-        </figure>
-      </div>
-      <div className="card-content card-content--overlayed">
-        <div className="content">
-          <ul>{eventTypeList}</ul>
-          <br /> {props.eventTitle}
-          <br />
-          {props.eventDate}
-          {/* <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time> */}
-          <br />
-          {props.detailsSlug ? <Link to={slug}>Go to event</Link> : null}
+    <Link to={slug}>
+      <div className="card">
+        <div className="card-image">
+          <figure className="image is-4by3">
+            <img src={`${props.imgURL}`} alt="" />
+          </figure>
+        </div>
+        <div className="card-content card-content--overlayed">
+          <div className="content">
+            <ul className="mx-0 my-0">{eventTypeList}</ul>
+            <div>
+              <h6 className="title is-6">{props.eventTitle}</h6>
+            </div>
+
+            <div>
+              {props.eventDate}
+              <div className="is-pulled-right">
+                <button className="button is-small is-outlined">Details</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 

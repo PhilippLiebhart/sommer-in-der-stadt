@@ -10,7 +10,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import Card from "../components/card/card"
 
 const months = {
-  July: { start: "2020-07-01T00:01", end: "2020-07-31T00:00" },
+  Juli: { start: "2020-07-01T00:01", end: "2020-07-31T00:00" },
   August: { start: "2020-08-01T00:01", end: "2020-08-31T00:00" },
   September: { start: "2020-09-01T00:01", end: "2020-09-31T00:00" },
   Oktober: { start: "2020-10-01T00:01", end: "2020-10-31T00:00" },
@@ -29,11 +29,9 @@ const EventsPage = ({ data }) => {
 
   // FILTER BY eventType
   const filterByEventType = name => {
-    console.log("eventData", state.eventData)
-    const dataToFilter = state.eventData
+    const dataToFilter = data.allContentfulEvent.edges
     const filteredData = dataToFilter.filter(event => {
-      console.log(event)
-      return event.node.eventType === name
+      return event.node.eventType.includes(name)
     })
 
     setState({ ...state, eventData: filteredData })
@@ -51,8 +49,8 @@ const EventsPage = ({ data }) => {
     setState({ ...state, eventData: filteredByMonth, month: currMonth })
   }
 
-  //FILTERMENU
-  const filterMenu = Object.keys(months).map(igKey => {
+  //MONTH FILTERMENU
+  const monthsFilterMenu = Object.keys(months).map(igKey => {
     return (
       <li
         style={{
@@ -73,6 +71,7 @@ const EventsPage = ({ data }) => {
 
   // eventtypes menu
   const eventTypeMenu = eventTypes.map((event, index) => {
+    console.log("HULA HULA", event)
     return (
       <li
         style={{
@@ -118,18 +117,23 @@ const EventsPage = ({ data }) => {
   return (
     <Layout>
       <Navigation />
-      <section className="section">
-        <h1>Filter by Month:</h1>
-        <ul style={{ margin: "10px auto" }}>{filterMenu}</ul>
-        <ul>{eventTypeMenu}</ul>
-        <p>Events insgesamt: {state.eventData.length}</p>
-      </section>
-      <section className="section">
-        {state.month ? <h2>Events im {state.month}</h2> : <h2>Alle Events</h2>}
-        <div className="container">
-          <div className="columns">{eventList}</div>
-        </div>
-      </section>{" "}
+      <div className="container mt-6">
+        <section className="section">
+          <h1>Filter by Month:</h1>
+          <ul style={{ margin: "10px auto" }}>{monthsFilterMenu}</ul>
+          <ul>{eventTypeMenu}</ul>
+          <p className="mt-5">Events insgesamt: {state.eventData.length}</p>
+
+          {state.month ? (
+            <h2 className="mt-3">Events im {state.month}</h2>
+          ) : (
+            <h2 className="mt-3">Alle Events</h2>
+          )}
+          <div className="container">
+            <div className="columns">{eventList}</div>
+          </div>
+        </section>{" "}
+      </div>
     </Layout>
   )
 }

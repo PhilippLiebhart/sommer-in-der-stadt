@@ -2,6 +2,8 @@
   width: 100%;
   margin: 0 auto;
   background-size: 100%;
+  background-color: transparent;
+  border-radius: 10px 20px;
 }
 .card-content--overlayed {
   position: absolute;
@@ -9,6 +11,7 @@
   min-height: 100px;
   background-color: rgba($color: #ffffff, $alpha: 0.7);
   bottom: 0px;
+  border-radius: 10px 20px;
 }
 
 // .slick-container {
@@ -20,8 +23,17 @@
   box-sizing: border-box;
 }
 
-// .card-image img {
-//   height: 100% !important;
-//   width: 100%;
-//   object-fit: cover;
-// }
+.card-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center 60%;
+  border-radius: 10px 20px;
+}
+.card-image {
+  background-color: transparent;
+}
+
+.card-content {
+  padding: 0.8rem;
+}
