@@ -2,7 +2,7 @@ const FtpDeploy = require("ftp-deploy")
 const ftpDeploy = new FtpDeploy()
 
 const parseArgs = require("minimist")
-var argv = parseArgs(process.argv.slice(2))
+var argv = parseArgs(process.argv.slice(2), { string: "pw" })
 
 console.log("Start with Deploy to FTP...")
 
