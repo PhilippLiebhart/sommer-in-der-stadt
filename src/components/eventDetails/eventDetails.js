@@ -34,15 +34,15 @@ const EventCard = props => {
           {eventTypeList}
         </div>
         <div>
-          <h6 className="title is-6 mb-1 mt-5">Wann? </h6>
-          <div className="box">
+          <h6 className="title is-6 mb-1 mt-5">Wann?</h6>
+          <div className="box is-inline-block px-3 py-1">
             <h5 className="subtitle is-5 mx-0 my-0 px-0 py-0">
               {props.eventDate}
             </h5>
           </div>
 
-          <h6 className="title is-6 mb-1">Wo? </h6>
-          <div className="box mb-5">
+          <h6 className="title is-6 mb-1">Wo?</h6>
+          <div className="box is-inline-block px-3 py-1 mb-5">
             <h5 className="subtitle is-5 mx-0 my-0 px-0 py-0">
               {" "}
               {props.eventLocation}
@@ -51,11 +51,8 @@ const EventCard = props => {
         </div>
 
         <div>
-          <h2 className="title is-5 mb-2">Info: </h2>
+          <h2 className="title is-5 mb-2">Info:</h2>
           {props.eventInfo}
-        </div>
-        <div>
-          {props.detailsSlug ? <Link to={slug}>Go to event</Link> : null}
         </div>
       </div>
     </section>

@@ -40,7 +40,7 @@ const Card = props => {
             <div>
               {props.eventDate}
               <div className="is-pulled-right">
-                <button className="button is-small is-outlined">Details</button>
+                <span className="tag is-light">Details</span>
               </div>
             </div>
           </div>

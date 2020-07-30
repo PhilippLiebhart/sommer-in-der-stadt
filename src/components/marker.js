@@ -1,7 +1,8 @@
 import React from "react"
 import marker from "../images/marker.png"
+import { checkPropTypes } from "prop-types"
 
-const Marker = () => {
+const Marker = props => {
   return (
     <>
       <img style={{ width: "50px" }} src={marker} alt="Marker" />
@@ -13,7 +14,7 @@ const Marker = () => {
           color: "white",
         }}
       >
-        Du bist hier!
+        {props.locName}
       </div>
     </>
   )
