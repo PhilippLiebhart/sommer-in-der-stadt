@@ -34,16 +34,22 @@ module.exports = {
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/fav.png`, // This path is relative to the root of the site.
+        display: `standalone`,
+        icons: [
+          {
+            src: `/icon-192x192.png`,
+            sizes: `192x192`,
+            type: `image/png`,
+          },
+          {
+            src: `/icon-512x512.png`,
+            sizes: `512x512`,
+            type: `image/png`,
+          },
+        ],
       },
     },
-    {
-      resolve: `gatsby-plugin-offline`,
-      options: {
-        precachePages: [`/`, `/events/`],
-      },
-    },
+    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-source-contentful`,
       options: {
