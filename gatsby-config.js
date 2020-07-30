@@ -9,7 +9,7 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    siteUrl: `http://kulturtage.muenchen-gschichtn.de/`,
+    siteUrl: `https://kulturtage.muenchen-gschichtn.de`,
     title: `Kulturtage Au/Haidhausen`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
