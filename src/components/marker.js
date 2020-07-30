@@ -3,8 +3,12 @@ import marker from "../images/marker.png"
 import { checkPropTypes } from "prop-types"
 
 const Marker = props => {
+  const greatPlaceStyle = {
+    position: "absolute",
+    transform: "translate(-50%, -50%)",
+  }
   return (
-    <>
+    <div style={greatPlaceStyle}>
       <img style={{ width: "50px" }} src={marker} alt="Marker" />
       <div
         style={{
@@ -16,7 +20,7 @@ const Marker = props => {
       >
         {props.locName}
       </div>
-    </>
+    </div>
   )
 }
 
