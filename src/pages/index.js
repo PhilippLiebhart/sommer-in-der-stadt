@@ -25,8 +25,6 @@ const IndexPage = ({ data }) => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
-          arrows: true,
-          dots: true,
         },
       },
       {
@@ -34,8 +32,6 @@ const IndexPage = ({ data }) => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          arrows: true,
-          dots: true,
         },
       },
       {
@@ -43,8 +39,6 @@ const IndexPage = ({ data }) => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          arrows: true,
-          dots: true,
         },
       },
       {
@@ -52,8 +46,6 @@ const IndexPage = ({ data }) => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          arrows: true,
-          dots: true,
         },
       },
     ],
