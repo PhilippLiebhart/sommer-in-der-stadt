@@ -66,9 +66,11 @@ const EventsPage = ({ data }) => {
   // EVENTTYPE FILTER
   const filterByEventType = name => {
     const dataToFilter = data.allContentfulEvent.edges
-    const filteredData = dataToFilter.filter(event => {
-      return event.node.eventType.includes(name)
-    })
+    const filteredData = dataToFilter
+      .filter(event => {
+        return event.node.eventType.includes(name)
+      })
+      .sort((a, b) => new Date(a.node.date) - new Date(b.node.date))
 
     setLoadedEventList({
       ...loadedEventList,
@@ -81,11 +83,13 @@ const EventsPage = ({ data }) => {
   // MONTH FILTER
   const filterByMonth = (start, end, currMonth) => {
     const monthFilterData = data.allContentfulEvent.edges
-    const filteredByMonth = monthFilterData.filter(event => {
-      const startDate = start
-      const endDate = end
-      return event.node.date >= startDate && event.node.date <= endDate
-    })
+    const filteredByMonth = monthFilterData
+      .filter(event => {
+        const startDate = start
+        const endDate = end
+        return event.node.date >= startDate && event.node.date <= endDate
+      })
+      .sort((a, b) => new Date(a.node.date) - new Date(b.node.date))
 
     setLoadedEventList({
       ...loadedEventList,
