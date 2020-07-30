@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import { graphql } from "gatsby"
 import GoogleMapReact from "google-map-react"
-import Marker from "../components/marker"
-import Footer from "../components/footer"
-import Navigation from "../components/navigation/navigation"
 import moment from "moment"
+import React from "react"
+import Footer from "../components/footer"
+import Marker from "../components/marker"
+import Navigation from "../components/navigation/navigation"
+import SEO from "../components/seo"
 
 const KartePage = ({ data }) => {
   // const [location, setLocation] = useState()
@@ -19,8 +19,6 @@ const KartePage = ({ data }) => {
   // }, [])
 
   const marker = []
-
-  console.log(data.allContentfulEvent.edges)
 
   const today = moment()
   const allEvents = data.allContentfulEvent.edges

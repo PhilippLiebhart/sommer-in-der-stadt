@@ -111,7 +111,7 @@ const EventsPage = ({ data }) => {
       monthIsActive = "tag is-warning"
     }
 
-    console.log(monthIsActive)
+    // console.log(monthIsActive)
     return (
       <div
         key={igKey}
