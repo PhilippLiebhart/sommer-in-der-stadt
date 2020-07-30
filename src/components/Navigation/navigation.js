@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import { Link } from "gatsby"
 import "./navigation.scss"
+import { Link } from "gatsby"
 
 const Navigation = props => {
   const logoImg = require("../../images/muenchner-kindl.png")
@@ -43,6 +43,10 @@ const Navigation = props => {
 
           <Link to="/events" className="navbar-item">
             Veranstaltungen
+          </Link>
+
+          <Link to="/karte" className="navbar-item">
+            Karte
           </Link>
 
           <Link to="/impressum" className="navbar-item">
