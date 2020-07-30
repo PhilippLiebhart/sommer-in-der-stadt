@@ -35,6 +35,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `standalone`,
+        icon: `src/images/icon.png`,
         icons: [
           {
             src: `/icon-192x192.png`,
