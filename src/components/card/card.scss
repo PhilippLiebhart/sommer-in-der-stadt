@@ -9,7 +9,7 @@
   position: absolute;
   width: 100%;
   min-height: 100px;
-  background-color: rgba($color: #ffffff, $alpha: 0.7);
+  background-color: rgba($color: #ffffff, $alpha: 0.7) !important;
   bottom: 0px;
   border-radius: 10px 20px;
 }
