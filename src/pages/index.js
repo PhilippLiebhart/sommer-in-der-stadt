@@ -52,7 +52,7 @@ const IndexPage = ({ data }) => {
   }
 
   const today = moment()
-  console.log("HULA", today)
+
   console.log(
     "HAHAHAHA",
     data.allContentfulEvent.edges.filter(
@@ -61,12 +61,14 @@ const IndexPage = ({ data }) => {
   )
 
   const allEvents = data.allContentfulEvent.edges
-    .filter(event => today.diff(moment(event.node.date)))
+    .filter(event => 0 > today.diff(moment(event.node.date)))
     .sort((a, b) => new Date(a.node.date) - new Date(b.node.date))
+
+  console.log("BUUUU", allEvents)
 
   const [loadedEventList, setLoadedEventList] = useState({
     allEvents,
-    loadedEvents: data.allContentfulEvent.edges.slice(0, 2),
+    loadedEvents: allEvents.slice(0, 8),
     loadCount: 0,
   })
 

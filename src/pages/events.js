@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import Navigation from "../components/navigation/navigation"
 
 import Moment from "react-moment"
+import moment from "moment"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import Card from "../components/card/card"
 
@@ -40,8 +41,14 @@ const EventsPage = ({ data }) => {
   //   eventCount: data.allContentfulEvent.totalCount,
   // })
 
+  const today = moment()
+
+  const allEvents = data.allContentfulEvent.edges
+    .filter(event => 0 > today.diff(moment(event.node.date)))
+    .sort((a, b) => new Date(a.node.date) - new Date(b.node.date))
+
   const [loadedEventList, setLoadedEventList] = useState({
-    loadedEvents: data.allContentfulEvent.edges.sort(
+    loadedEvents: allEvents.sort(
       (a, b) => new Date(a.node.date) - new Date(b.node.date)
     ),
     startDate: "2020-07-01T20:00",
@@ -49,10 +56,10 @@ const EventsPage = ({ data }) => {
     month: null,
     type: null,
     eventCount: data.allContentfulEvent.totalCount,
-    allEvents: data.allContentfulEvent.edges.sort(
+    allEvents: allEvents.sort(
       (a, b) => new Date(a.node.date) - new Date(b.node.date)
     ),
-    loadedEvents: data.allContentfulEvent.edges.slice(0, 4),
+    loadedEvents: allEvents.slice(0, 10),
     loadCount: 0,
   })
 
@@ -126,10 +133,10 @@ const EventsPage = ({ data }) => {
         onClick={() =>
           filterByMonth(months[igKey].start, months[igKey].end, igKey)
         }
-        className="is-inline-block mx-1 my-1"
+        className="is-inline-block"
       >
         <span className="tag is-warning"> {igKey}</span>
-        <span className="tag is-dark mr-2">{countMonthEvents}</span>
+        <span className="tag is-dark mr-1">{countMonthEvents}</span>
       </div>
     )
   })
@@ -147,7 +154,7 @@ const EventsPage = ({ data }) => {
         onClick={() => filterByEventType(event)}
       >
         <span className="tag is-warning"> {event}</span>
-        <span className="tag is-dark mr-2">{countTypes}</span>
+        <span className="tag is-dark mr-1">{countTypes}</span>
       </div>
     )
   })
