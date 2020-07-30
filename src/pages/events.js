@@ -59,35 +59,11 @@ const EventsPage = ({ data }) => {
     allEvents: allEvents.sort(
       (a, b) => new Date(a.node.date) - new Date(b.node.date)
     ),
-    loadedEvents: allEvents.slice(0, 10),
+    // loadedEvents: allEvents.slice(0, 10),
     loadCount: 0,
   })
 
-  const loadMoreHandler = () => {
-    // const start = 0
-    const end = loadedEventList.loadCount + 8
-    const updatedLoadedEvents = data.allContentfulEvent.edges.slice(0, end)
-    console.log(updatedLoadedEvents)
-    setLoadedEventList({
-      ...loadedEventList,
-      loadedEvents: updatedLoadedEvents,
-      loadCount: end,
-    })
-  }
-
-  const loadMoreFilterHandler = () => {
-    // const start = 0
-    const end = loadedEventList.loadCount + 8
-    const updatedLoadedEvents = loadedEventList.loadedEvents.slice(0, end)
-
-    setLoadedEventList({
-      ...loadedEventList,
-      loadedEvents: updatedLoadedEvents,
-      loadCount: end,
-    })
-  }
-
-  // FILTER BY eventType
+  // EVENTTYPE FILTER
   const filterByEventType = name => {
     const dataToFilter = data.allContentfulEvent.edges
     const filteredData = dataToFilter.filter(event => {
@@ -102,7 +78,7 @@ const EventsPage = ({ data }) => {
     })
   }
 
-  // Filter by Month
+  // MONTH FILTER
   const filterByMonth = (start, end, currMonth) => {
     const monthFilterData = data.allContentfulEvent.edges
     const filteredByMonth = monthFilterData.filter(event => {
@@ -128,6 +104,14 @@ const EventsPage = ({ data }) => {
       )
     }).length
 
+    let monthIsActive = loadedEventList.month
+    if (loadedEventList.month === igKey) {
+      monthIsActive = "tag is-white"
+    } else {
+      monthIsActive = "tag is-warning"
+    }
+
+    console.log(monthIsActive)
     return (
       <div
         key={igKey}
@@ -137,7 +121,7 @@ const EventsPage = ({ data }) => {
         style={{ cursor: "pointer" }}
         className="is-inline-block"
       >
-        <span className="tag is-warning"> {igKey}</span>
+        <span className={monthIsActive}> {igKey}</span>
         <span className="tag is-dark mr-1">{countMonthEvents}</span>
       </div>
     )
@@ -149,6 +133,12 @@ const EventsPage = ({ data }) => {
       return event.node.eventType.includes(eventTypes[index])
     }).length
 
+    let typeIsActive = loadedEventList.type
+    if (loadedEventList.type === event) {
+      typeIsActive = "tag is-white"
+    } else {
+      typeIsActive = "tag is-warning"
+    }
     return (
       <div
         className="is-inline-block"
@@ -156,7 +146,7 @@ const EventsPage = ({ data }) => {
         onClick={() => filterByEventType(event)}
         style={{ cursor: "pointer" }}
       >
-        <span className="tag is-warning"> {event}</span>
+        <span className={typeIsActive}> {event}</span>
         <span className="tag is-dark mr-1">{countTypes}</span>
       </div>
     )

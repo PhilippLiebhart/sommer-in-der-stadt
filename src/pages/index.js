@@ -53,33 +53,15 @@ const IndexPage = ({ data }) => {
 
   const today = moment()
 
-  console.log(
-    "HAHAHAHA",
-    data.allContentfulEvent.edges.filter(
-      event => 0 > today.diff(moment(event.node.date))
-    )
-  )
-
   const allEvents = data.allContentfulEvent.edges
     .filter(event => 0 > today.diff(moment(event.node.date)))
     .sort((a, b) => new Date(a.node.date) - new Date(b.node.date))
 
-  console.log("BUUUU", allEvents)
-
   const [loadedEventList, setLoadedEventList] = useState({
-    allEvents,
+    allEvents: allEvents,
     loadedEvents: allEvents.slice(0, 8),
-    loadCount: 0,
+    loadCount: 8,
   })
-
-  // const sortEvents = () => {
-  //   let myArr = loadedEventList.allEvents
-  //   let sortedEvents = myArr.sort(
-  //     (a, b) => new Date(a.node.date) - new Date(b.node.date)
-  //   )
-
-  //   setLoadedEventList({ ...loadedEventList, loadedEvents: sortedEvents })
-  // }
 
   const loadMoreHandler = () => {
     // const start = 0
