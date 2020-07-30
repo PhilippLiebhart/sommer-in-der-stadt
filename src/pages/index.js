@@ -159,7 +159,7 @@ const IndexPage = ({ data }) => {
           </div>
           <div className="columns is-multiline is-vcentered is-mobile is-desktop is-tablet">
             {eventData}
-            <div>
+            <div className="column is-full">
               <button
                 className="button is-fullwidth is-warning"
                 onClick={() => loadMoreHandler()}
