@@ -98,6 +98,7 @@ const EventsPage = ({ data }) => {
       ...loadedEventList,
       loadedEvents: filteredData,
       type: name,
+      month: null,
     })
   }
 
@@ -219,14 +220,14 @@ const EventsPage = ({ data }) => {
           </div>
           <div className="container">
             <div className="columns">{eventList}</div>
-            <div>
+            {/* <div>
               <button
                 className="button is-fullwidth is-warning"
                 onClick={() => loadMoreHandler()}
               >
                 mehr laden
               </button>
-            </div>
+            </div> */}
           </div>
         </section>{" "}
       </div>
