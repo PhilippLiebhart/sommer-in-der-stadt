@@ -20,34 +20,37 @@ const EventTemplate = ({ data, pageContext, location }) => {
     <section>
       <Layout>
         <SEO title="Event" />
-
-        <EventDetails
-          key={pageContext.node.id}
-          // detailsSlug={pageContext.node.slug}
-          eventTitle={pageContext.node.name}
-          eventDate={<Moment date={dateToFormat} format="D.M.YY HH:mm [Uhr]" />}
-          eventTypeName={pageContext.node.eventType}
-          eventLocation={pageContext.node.locationName}
-          eventInfo={riched}
-          imgURL={pageContext.node.imgUrl.fluid.src}
-        />
-        <div style={{ height: "50vh", width: "100%", display: "block" }}>
-          <GoogleMapReact
-            bootstrapURLKeys={{
-              key: "AIzaSyCrFJ7AhxG30WBcTLrm10qLCcpByXjutxI",
-            }}
-            defaultCenter={{
-              lat: pageContext.node.location.lat,
-              lng: pageContext.node.location.lon,
-            }}
-            defaultZoom={16}
-          >
-            <Marker
-              lat={pageContext.node.location.lat}
-              lng={pageContext.node.location.lon}
-              locName={pageContext.node.locationName}
-            />
-          </GoogleMapReact>
+        <div className="container">
+          <EventDetails
+            key={pageContext.node.id}
+            // detailsSlug={pageContext.node.slug}
+            eventTitle={pageContext.node.name}
+            eventDate={
+              <Moment date={dateToFormat} format="D.M.YY HH:mm [Uhr]" />
+            }
+            eventTypeName={pageContext.node.eventType}
+            eventLocation={pageContext.node.locationName}
+            eventInfo={riched}
+            imgURL={pageContext.node.imgUrl.fluid.src}
+          />
+          <div style={{ height: "50vh", width: "100%", display: "block" }}>
+            <GoogleMapReact
+              bootstrapURLKeys={{
+                key: "AIzaSyCrFJ7AhxG30WBcTLrm10qLCcpByXjutxI",
+              }}
+              defaultCenter={{
+                lat: pageContext.node.location.lat,
+                lng: pageContext.node.location.lon,
+              }}
+              defaultZoom={16}
+            >
+              <Marker
+                lat={pageContext.node.location.lat}
+                lng={pageContext.node.location.lon}
+                locName={pageContext.node.locationName}
+              />
+            </GoogleMapReact>
+          </div>
         </div>
       </Layout>
     </section>

@@ -25,34 +25,36 @@ const EventCard = props => {
 
   return (
     <section class="section">
-      <div className="content">
-        <div>
-          <img src={`${props.imgURL}`} alt="" />
-        </div>
-        <div>
-          <h1 className="title is-5 my-0">{props.eventTitle}</h1>
-          {eventTypeList}
-        </div>
-        <div>
-          <h6 className="title is-6 mb-1 mt-5">Wann?</h6>
-          <div className="box is-inline-block px-3 py-1">
-            <h5 className="subtitle is-5 mx-0 my-0 px-0 py-0">
-              {props.eventDate}
-            </h5>
+      <div className="container">
+        <div className="column is-full-mobile is-full-desktop is-half-tablet is-one-quarter-widescreen is-one-quarter-fullhd">
+          <div className="detailsImg">
+            <img src={`${props.imgURL}`} alt="" />
+          </div>
+          <div>
+            <h1 className="title is-5 mb-0 mt-3">{props.eventTitle}</h1>
+            {eventTypeList}
+          </div>
+          <div>
+            <h6 className="title is-6 mb-1 mt-5">Wann?</h6>
+            <div className="box is-inline-block px-3 py-1">
+              <h5 className="subtitle is-6 mx-0 my-0 px-0 py-0">
+                {props.eventDate}
+              </h5>
+            </div>
+
+            <h6 className="title is-6 mb-1">Wo?</h6>
+            <div className="box is-inline-block px-3 py-1 mb-5">
+              <h5 className="subtitle is-6 mx-0 my-0 px-0 py-0">
+                {" "}
+                {props.eventLocation}
+              </h5>
+            </div>
           </div>
 
-          <h6 className="title is-6 mb-1">Wo?</h6>
-          <div className="box is-inline-block px-3 py-1 mb-5">
-            <h5 className="subtitle is-5 mx-0 my-0 px-0 py-0">
-              {" "}
-              {props.eventLocation}
-            </h5>
+          <div>
+            <h2 className="title is-5 mb-2">Info:</h2>
+            {props.eventInfo}
           </div>
-        </div>
-
-        <div>
-          <h2 className="title is-5 mb-2">Info:</h2>
-          {props.eventInfo}
         </div>
       </div>
     </section>
