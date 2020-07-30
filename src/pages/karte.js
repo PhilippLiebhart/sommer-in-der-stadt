@@ -33,6 +33,10 @@ const KartePage = () => {
             bootstrapURLKeys={{
               key: "AIzaSyCrFJ7AhxG30WBcTLrm10qLCcpByXjutxI",
             }}
+            defaultCenter={{
+              lat: location.coords.latitude,
+              lng: location.coords.longitude,
+            }}
             defaultZoom={17}
           >
             <Marker
