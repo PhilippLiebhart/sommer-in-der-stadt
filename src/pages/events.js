@@ -134,6 +134,7 @@ const EventsPage = ({ data }) => {
         onClick={() =>
           filterByMonth(months[igKey].start, months[igKey].end, igKey)
         }
+        style={{ cursor: "pointer" }}
         className="is-inline-block"
       >
         <span className="tag is-warning"> {igKey}</span>
@@ -153,6 +154,7 @@ const EventsPage = ({ data }) => {
         className="is-inline-block"
         key={index}
         onClick={() => filterByEventType(event)}
+        style={{ cursor: "pointer" }}
       >
         <span className="tag is-warning"> {event}</span>
         <span className="tag is-dark mr-1">{countTypes}</span>
@@ -168,7 +170,10 @@ const EventsPage = ({ data }) => {
     const dateToFormat = event.node.date
 
     return (
-      <div className="column" key={event.node.id}>
+      <div
+        className="column column is-full-mobile is-half-desktop is-half-tablet is-one-quarter-widescreen is-one-quarter-fullhd"
+        key={event.node.id}
+      >
         <Card
           key={event.node.id}
           detailsSlug={event.node.slug}
@@ -219,7 +224,9 @@ const EventsPage = ({ data }) => {
             ) : null}
           </div>
           <div className="container">
-            <div className="columns">{eventList}</div>
+            <div className="columns is-multiline is-vcentered is-mobile is-desktop is-tablet">
+              {eventList}
+            </div>
             {/* <div>
               <button
                 className="button is-fullwidth is-warning"

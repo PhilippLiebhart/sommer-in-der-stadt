@@ -125,7 +125,10 @@ const IndexPage = ({ data }) => {
     const dateToFormat = event.node.date
 
     return (
-      <div className="column" key={event.node.id}>
+      <div
+        className="column is-full-mobile is-half-desktop is-half-tablet is-one-quarter-widescreen is-one-quarter-fullhd"
+        key={event.node.id}
+      >
         <Card
           detailsSlug={event.node.slug}
           eventTitle={event.node.name}
@@ -172,7 +175,7 @@ const IndexPage = ({ data }) => {
               <h5 className="subtitle is-5">Kommende Wochen</h5>
             </div>
           </div>
-          <div className="columns">
+          <div className="columns is-multiline is-vcentered is-mobile is-desktop is-tablet">
             {eventData}
             <div>
               <button
