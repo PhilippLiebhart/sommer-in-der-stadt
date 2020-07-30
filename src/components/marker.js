@@ -10,7 +10,7 @@ const Marker = props => {
   }
   return (
     <div style={greatPlaceStyle}>
-      <img style={{ width: "50px" }} src={marker} alt="Marker" />
+      <img style={{ width: props.markerWidth }} src={marker} alt="Marker" />
       <div
         style={{
           width: "100px",
