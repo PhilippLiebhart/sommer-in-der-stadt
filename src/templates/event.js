@@ -40,7 +40,7 @@ const EventTemplate = ({ data, pageContext, location }) => {
               lat: pageContext.node.location.lat,
               lng: pageContext.node.location.lon,
             }}
-            defaultZoom={17}
+            defaultZoom={16}
           >
             <Marker
               lat={pageContext.node.location.lat}
