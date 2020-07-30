@@ -28,7 +28,7 @@ const KartePage = () => {
         </p>
       )}
       {location && location.coords && (
-        <div style={{ height: "70vh", width: "100%" }}>
+        <div className="google-map-react-wrapper">
           <GoogleMapReact
             bootstrapURLKeys={{
               key: "AIzaSyCrFJ7AhxG30WBcTLrm10qLCcpByXjutxI",
