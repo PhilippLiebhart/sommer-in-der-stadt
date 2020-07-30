@@ -16,7 +16,7 @@ const Navigation = props => {
       aria-label="main navigation"
     >
       <div className="navbar-brand">
-        <Link className="navbar-item" to="/new">
+        <Link className="navbar-item" to="/">
           <img src={logoImg} height={"100%"} alt="Logo" />
         </Link>
         <a
@@ -45,16 +45,8 @@ const Navigation = props => {
             Veranstaltungen
           </Link>
 
-          <Link to="/attractions" className="navbar-item">
-            Attraktionen
-          </Link>
-
-          <Link to="/attractions" className="navbar-item">
-            Essen & Trinken
-          </Link>
-
-          <Link to="/kultur" className="navbar-item">
-            Kultur
+          <Link to="/impressum" className="navbar-item">
+            Impressum
           </Link>
         </div>
       </div>

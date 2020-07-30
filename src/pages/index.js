@@ -127,7 +127,7 @@ const IndexPage = ({ data }) => {
         <Card
           detailsSlug={event.node.slug}
           eventTitle={event.node.name}
-          eventDate={<Moment date={dateToFormat} format="D MMM YYYY HH:mm" />}
+          eventDate={<Moment date={dateToFormat} format="D.M.YY HH:mm [Uhr]" />}
           eventLength="to define"
           topEvent={event.node.topEvent}
           eventTypeName={event.node.eventType}
@@ -142,15 +142,19 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <section className="section">
+      {/* <section className="section">
         <div className="container">
           <div className="columns">
             <div className="column">
               <h1 className="title mt-5">Servus und Herzlich Willkommen!</h1>
             </div>
           </div>
+        </div>
+      </section> */}
+      <section className="section mt-6 mb-1 py-2">
+        <div className="container">
           <div className="columns">
-            <div className="column">
+            <div className="column is-full">
               <h5 className="subtitle is-5">Die Highlights</h5>
             </div>
           </div>
@@ -159,7 +163,7 @@ const IndexPage = ({ data }) => {
       <div className="container-fluid">
         <Slider {...settings}>{sliderData}</Slider>
       </div>
-      <section className="section">
+      <section className="section mt-6 mb-0 py-0">
         <div className="container">
           <div className="columns">
             <div className="column is-full">

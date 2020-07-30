@@ -20,8 +20,7 @@ const EventTemplate = ({ data, pageContext, location }) => {
     <section>
       <Layout>
         <SEO title="Event" />
-        <h1>{pageContext.node.name}</h1>
-        <h4>@{pageContext.node.locationName}</h4>
+
         <EventDetails
           key={pageContext.node.id}
           // detailsSlug={pageContext.node.slug}
@@ -46,6 +45,7 @@ const EventTemplate = ({ data, pageContext, location }) => {
             <Marker
               lat={pageContext.node.location.lat}
               lng={pageContext.node.location.lon}
+              locName={pageContext.node.locationName}
             />
           </GoogleMapReact>
         </div>
