@@ -44,7 +44,7 @@ const KartePage = ({ data }) => {
       </header>
       <main>
         <div className="container-fluid">
-          <div style={{ height: "100vh", width: "100%" }}>
+          <div className="google-map-react-wrapper">
             <GoogleMapReact
               bootstrapURLKeys={{
                 key: "AIzaSyCrFJ7AhxG30WBcTLrm10qLCcpByXjutxI",
