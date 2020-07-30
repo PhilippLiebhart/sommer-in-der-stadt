@@ -23,31 +23,31 @@ const Card = props => {
   const slug = "/" + props.detailsSlug
 
   return (
-    <Link to={slug}>
-      <div className="card">
-        <div className="card-image">
-          <figure className="image is-4by3">
-            <img src={`${props.imgURL}`} alt="" />
-          </figure>
-        </div>
-        <div className="card-content card-content--overlayed">
-          <div className="content">
-            <ul className="mx-0 my-0">{eventTypeList}</ul>
-            <div className="">
-              <h6 className="title is-6 mx-0 mb-1 px-0 py-0">
-                {props.eventTitle}
-              </h6>
-            </div>
-            <div className="">
-              {props.eventDate}
-              <div className="is-pulled-right">
+    <div className="card">
+      <div className="card-image">
+        <figure className="image is-4by3">
+          <img src={`${props.imgURL}`} alt="" />
+        </figure>
+      </div>
+      <div className="card-content card-content--overlayed">
+        <div className="content">
+          <ul className="mx-0 my-0">{eventTypeList}</ul>
+          <div className="">
+            <h6 className="title is-6 mx-0 mb-1 px-0 py-0">
+              {props.eventTitle}
+            </h6>
+          </div>
+          <div className="">
+            {props.eventDate}
+            <div className="is-pulled-right">
+              <Link to={slug}>
                 <span className="tag is-light">Details</span>
-              </div>
+              </Link>
             </div>
           </div>
         </div>
       </div>
-    </Link>
+    </div>
   )
 }
 
