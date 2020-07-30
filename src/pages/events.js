@@ -1,13 +1,10 @@
-import React, { useState } from "react"
-import { graphql } from "gatsby"
-
-import Layout from "../components/layout"
-import Navigation from "../components/navigation/navigation"
-
-import Moment from "react-moment"
-import moment from "moment"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { graphql } from "gatsby"
+import moment from "moment"
+import React, { useState } from "react"
+import Moment from "react-moment"
 import Card from "../components/card/card"
+import Layout from "../components/layout"
 
 const months = {
   Juli: { start: "2020-07-01T00:01", end: "2020-07-31T00:00" },

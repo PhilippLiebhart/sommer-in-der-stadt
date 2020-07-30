@@ -15,7 +15,7 @@ const IndexPage = ({ data }) => {
     centerMode: true,
     infinite: true,
     slidesToShow: 5,
-    slidesToScroll: 5,
+    slidesToScroll: 1,
     speed: 500,
     arrows: false,
     dots: false,
@@ -24,14 +24,14 @@ const IndexPage = ({ data }) => {
         breakpoint: 1600,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
         },
       },
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
         },
       },
       {

@@ -1,13 +1,24 @@
 import React, { useState } from "react"
 import "./navigation.scss"
-import { Link } from "gatsby"
+import { Link, useStaticQuery } from "gatsby"
 
 const Navigation = props => {
-  const logoImg = require("../../images/muenchner-kindl.png")
   const [menuIsOpen, setMenuIsOpen] = useState(false)
   const toggleMenu = () => {
     setMenuIsOpen(!menuIsOpen)
   }
+
+  const data = useStaticQuery(graphql`
+    query {
+      logoImage: file(relativePath: { eq: "muenchner-kindl.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 300, quality: 90) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
 
   return (
     <nav
@@ -17,7 +28,11 @@ const Navigation = props => {
     >
       <div className="navbar-brand">
         <Link className="navbar-item" to="/">
-          <img src={logoImg} height={"100%"} alt="Logo" />
+          <img
+            src={data.logoImage.childImageSharp.fluid.src}
+            height={"100%"}
+            alt="Logo"
+          />
         </Link>
         <a
           role="button"

@@ -4,6 +4,7 @@ import React from "react"
 import Footer from "./footer"
 import Header from "./header"
 import "./style.scss"
+import ScrollToTopButton from "./scrollToTopButton/scrollToTopButton"
 
 const Layout = ({ children }) => {
   // const data = useStaticQuery(graphql`
@@ -23,6 +24,7 @@ const Layout = ({ children }) => {
       <main>{children}</main>
 
       <Footer />
+      <ScrollToTopButton />
     </>
   )
 }
