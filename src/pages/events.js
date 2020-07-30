@@ -186,6 +186,10 @@ const EventsPage = ({ data }) => {
       <Navigation />
       <div className="container mt-1">
         <section className="section">
+          <h4 className="title is-6">Alle Veranstaltungen Eintritt frei</h4>
+          <h4 className="subtitle is-7">
+            Bei allen Veranstaltungen Abstand halten u. Mundschutz tragen.
+          </h4>
           <h6 className="subtitle is-6 mx-0 my-2 px-0 py-0">Monate:</h6>
           <div className="field">
             <div className="control">

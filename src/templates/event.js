@@ -30,6 +30,7 @@ const EventTemplate = ({ data, pageContext, location }) => {
             }
             eventTypeName={pageContext.node.eventType}
             eventLocation={pageContext.node.locationName}
+            locationAdress={pageContext.node.locationAdress}
             eventInfo={riched}
             imgURL={pageContext.node.imgUrl.fluid.src}
           />

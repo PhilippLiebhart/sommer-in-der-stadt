@@ -46,7 +46,7 @@ const EventCard = props => {
             <div className="box is-inline-block px-3 py-1 mb-5">
               <h5 className="subtitle is-6 mx-0 my-0 px-0 py-0">
                 {" "}
-                {props.eventLocation}
+                {props.eventLocation}, {props.locationAdress}
               </h5>
             </div>
           </div>
