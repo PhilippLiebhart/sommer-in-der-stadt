@@ -183,7 +183,6 @@ const EventsPage = ({ data }) => {
 
   return (
     <Layout>
-      <Navigation />
       <div className="container mt-1">
         <section className="section">
           <h4 className="title is-6">Alle Veranstaltungen Eintritt frei</h4>
