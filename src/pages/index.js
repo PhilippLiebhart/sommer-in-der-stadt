@@ -14,7 +14,6 @@ import "slick-carousel/slick/slick-theme.css"
 const IndexPage = ({ data }) => {
   console.log("DATA INDEX", data)
 
-
   var settings = {
     dots: true,
     centerMode: true,
@@ -29,9 +28,13 @@ const IndexPage = ({ data }) => {
   }
 
   const sliderData = data.allContentfulEvent.edges.map(event => {
-    console.log("HULAAAA", event.node.childContentfulEventInformationRichTextNode.json)
-    const rich = event.node.childContentfulEventInformationRichTextNode.json;
+    console.log(
+      "HULAAAA",
+      event.node.childContentfulEventInformationRichTextNode.json
+    )
+    const rich = event.node.childContentfulEventInformationRichTextNode.json
     const riched = documentToReactComponents(rich)
+
     return (
       <EventCard
         key={event.node.id}
@@ -50,7 +53,7 @@ const IndexPage = ({ data }) => {
   // ===========
 
   const eventList = data.allContentfulEvent.edges.map(event => {
-    const rich = event.node.childContentfulEventInformationRichTextNode.json;
+    const rich = event.node.childContentfulEventInformationRichTextNode.json
     const riched = documentToReactComponents(rich)
     return (
       <EventCardSimple
