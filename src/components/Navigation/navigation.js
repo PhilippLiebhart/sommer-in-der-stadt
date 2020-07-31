@@ -14,7 +14,7 @@ const Navigation = props => {
         <div id="overlay" />
         <ul>
           <Link to="/">
-            <li>Home</li>
+            <li>HOME</li>
           </Link>
           <Link to="/karte/" activeClassName="active">
             <li>Karte</li>
