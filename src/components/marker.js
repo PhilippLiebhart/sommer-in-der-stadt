@@ -1,7 +1,6 @@
+import PropTypes from "prop-types"
 import React from "react"
 import marker from "../images/marker.png"
-import { checkPropTypes } from "prop-types"
-import PropTypes from "prop-types"
 
 const Marker = props => {
   const greatPlaceStyle = {

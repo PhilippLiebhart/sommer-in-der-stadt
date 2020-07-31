@@ -7,7 +7,7 @@ const ImpressumPage = () => {
     <Layout>
       <SEO title="Impressum" />
       <div className="container">
-        <h1 class="title">Impressum</h1>
+        <h1 className="title">Impressum</h1>
       </div>
     </Layout>
   )

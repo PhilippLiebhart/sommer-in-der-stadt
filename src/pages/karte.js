@@ -8,30 +8,34 @@ import Navigation from "../components/navigation/navigation"
 import SEO from "../components/seo"
 
 const KartePage = ({ data }) => {
-  // const [location, setLocation] = useState()
+  // const groupBy = (array, key) => {
+  //   return array.reduce((result, currentValue) => {
+  //     ;(result[currentValue[key]] = result[currentValue[key]] || []).push(
+  //       currentValue
+  //     )
 
-  // useEffect(() => {
-  //   if (navigator.geolocation) {
-  //     navigator.geolocation.watchPosition(position => {
-  //       setLocation(position)
-  //     })
-  //   }
-  // }, [])
+  //     return result
+  //   }, {})
+  // }
+
+  // console.log(data.allContentfulEvent.nodes)
+  // console.log(groupBy(data.allContentfulEvent.nodes, "locationName"))
 
   const marker = []
 
   const today = moment()
-  const allEvents = data.allContentfulEvent.edges
-    .filter(event => 0 > today.diff(moment(event.node.date)))
-    .sort((a, b) => new Date(a.node.date) - new Date(b.node.date))
+
+  data.allContentfulEvent.nodes
+    .filter(event => 0 > today.diff(moment(event.date)))
+    .sort((a, b) => new Date(a.date) - new Date(b.date))
     .forEach(event => {
       marker.push(
         <Marker
-          key={event.node.id}
+          key={event.id}
           markerWidth={"20px"}
-          lat={event.node.location.lat}
-          lng={event.node.location.lon}
-          locName={event.node.locationName}
+          lat={event.location.lat}
+          lng={event.location.lon}
+          locName={event.locationName}
         />
       )
     })
@@ -71,18 +75,17 @@ export const query = graphql`
   query KartePageQuery {
     allContentfulEvent {
       totalCount
-      edges {
-        node {
-          id
-          topEvent
-          eventType
-          locationName
-          name
-          slug
-          location {
-            lat
-            lon
-          }
+
+      nodes {
+        id
+        topEvent
+        eventType
+        locationName
+        name
+        slug
+        location {
+          lat
+          lon
         }
       }
     }

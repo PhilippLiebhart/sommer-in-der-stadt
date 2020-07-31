@@ -1,9 +1,7 @@
 import React from "react"
-import Layout from "../components/layout"
-
-import "./attractions.css"
 import FerrisWheel from "../components/ferrisWheel/ferrisWheel"
-import { graphql } from "gatsby"
+import Layout from "../components/layout"
+import "./attractions.css"
 
 const AttractionsPage = ({ data }) => {
   return (
