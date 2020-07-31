@@ -1,6 +1,6 @@
+import { graphql, Link, useStaticQuery } from "gatsby"
 import React, { useState } from "react"
 import "./navigation.scss"
-import { Link, useStaticQuery } from "gatsby"
 
 const Navigation = props => {
   const [menuIsOpen, setMenuIsOpen] = useState(false)
