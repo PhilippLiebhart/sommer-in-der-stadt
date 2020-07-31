@@ -1,6 +1,6 @@
 import React from "react"
 
-import "./ferrisWheel.css"
+import "./ferrisWheel.scss"
 
 const FerrisWheel = () => {
   return (

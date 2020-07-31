@@ -1,10 +1,15 @@
+import PropTypes from "prop-types"
 import React from "react"
 import marker from "../images/marker.png"
 
-const Marker = () => {
+const Marker = props => {
+  const greatPlaceStyle = {
+    position: "absolute",
+    transform: "translate(-50%, -50%)",
+  }
   return (
-    <>
-      <img style={{ width: "50px" }} src={marker} alt="Marker" />
+    <div style={greatPlaceStyle}>
+      <img style={{ width: props.markerWidth }} src={marker} alt="Marker" />
       <div
         style={{
           width: "100px",
@@ -13,10 +18,22 @@ const Marker = () => {
           color: "white",
         }}
       >
-        Du bist hier!
+        {props.locName}
       </div>
-    </>
+    </div>
   )
+}
+
+Marker.defaultProps = {
+  marker: "",
+  locName: "",
+  markerWidth: "50px",
+}
+
+Marker.propTypes = {
+  marker: PropTypes.string,
+  locName: PropTypes.string,
+  markerWidth: PropTypes.string,
 }
 
 export default Marker

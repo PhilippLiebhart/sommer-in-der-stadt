@@ -1,0 +1,39 @@
+.card {
+  width: 100%;
+  margin: 0 auto;
+  background-size: 100%;
+  background-color: transparent;
+  border-radius: 10px 20px;
+}
+.card-content--overlayed {
+  position: absolute;
+  width: 100%;
+  min-height: 100px;
+  background-color: rgba($color: #ffffff, $alpha: 0.7) !important;
+  bottom: 0px;
+  border-radius: 10px 20px;
+}
+
+// .slick-container {
+//   height: 60%;
+// }
+
+.slick-slide {
+  padding: 0 5px;
+  box-sizing: border-box;
+}
+
+.card-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center 60%;
+  border-radius: 10px 20px;
+}
+.card-image {
+  background-color: transparent;
+}
+
+.card-content {
+  padding: 0.6rem;
+}

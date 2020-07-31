@@ -32,6 +32,7 @@ exports.createPages = ({ graphql, actions }) => {
               date(formatString: "")
               topEvent
               locationName
+              locationAdress
               name
               slug
               location {

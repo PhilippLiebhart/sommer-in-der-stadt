@@ -1,55 +1,93 @@
-import React, { useEffect, useState } from "react"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import { graphql } from "gatsby"
 import GoogleMapReact from "google-map-react"
+import moment from "moment"
+import React from "react"
+import Footer from "../components/footer"
 import Marker from "../components/marker"
+import Navigation from "../components/navigation/navigation"
+import SEO from "../components/seo"
 
-const KartePage = () => {
-  const [location, setLocation] = useState()
+const KartePage = ({ data }) => {
+  // const groupBy = (array, key) => {
+  //   return array.reduce((result, currentValue) => {
+  //     ;(result[currentValue[key]] = result[currentValue[key]] || []).push(
+  //       currentValue
+  //     )
 
-  useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.watchPosition(position => {
-        setLocation(position)
-        console.log(position)
-      })
-    }
-  }, [])
+  //     return result
+  //   }, {})
+  // }
+
+  // console.log(data.allContentfulEvent.nodes)
+  // console.log(groupBy(data.allContentfulEvent.nodes, "locationName"))
+
+  const marker = []
+
+  const today = moment()
+
+  data.allContentfulEvent.nodes
+    .filter(event => 0 > today.diff(moment(event.date)))
+    .sort((a, b) => new Date(a.date) - new Date(b.date))
+    .forEach(event => {
+      marker.push(
+        <Marker
+          key={event.id}
+          markerWidth={"20px"}
+          lat={event.location.lat}
+          lng={event.location.lon}
+          locName={event.locationName}
+        />
+      )
+    })
 
   return (
-    <Layout>
+    <>
       <SEO title="Karte" />
-      <h4>
-        Wenn du mir erlaubst, sag ich dir so ganz grob ungefähr wo du stehst ;).
-      </h4>
-      {location && location.coords && (
-        <p>
-          Latitude is: {location.coords.latitude} <br />
-          Longitude is: {location.coords.longitude}
-        </p>
-      )}
-      {location && location.coords && (
-        <div style={{ height: "70vh", width: "100%" }}>
-          <GoogleMapReact
-            bootstrapURLKeys={{
-              key: "AIzaSyCrFJ7AhxG30WBcTLrm10qLCcpByXjutxI",
-            }}
-            defaultCenter={{
-              lat: location.coords.latitude,
-              lng: location.coords.longitude,
-            }}
-            defaultZoom={17}
-          >
-            <Marker
-              lat={location.coords.latitude}
-              lng={location.coords.longitude}
-              text="Du bist hier"
-            />
-          </GoogleMapReact>
+      <header className="header">
+        <Navigation />
+      </header>
+      <main>
+        <div className="container-fluid">
+          <div className="google-map-react-wrapper">
+            <GoogleMapReact
+              bootstrapURLKeys={{
+                key: "AIzaSyCrFJ7AhxG30WBcTLrm10qLCcpByXjutxI",
+              }}
+              defaultCenter={{
+                lat: 48.1322963,
+                lng: 11.5941888,
+              }}
+              defaultZoom={16}
+            >
+              {marker}
+            </GoogleMapReact>
+          </div>
         </div>
-      )}
-    </Layout>
+      </main>
+      <Footer />
+    </>
   )
 }
 
 export default KartePage
+
+export const query = graphql`
+  query KartePageQuery {
+    allContentfulEvent {
+      totalCount
+
+      nodes {
+        id
+        topEvent
+        eventType
+        locationName
+        name
+        slug
+        location {
+          lat
+          lon
+        }
+      }
+    }
+  }
+`

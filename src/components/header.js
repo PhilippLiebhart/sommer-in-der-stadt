@@ -1,18 +1,17 @@
 import PropTypes from "prop-types"
 import React from "react"
 import Navigation from "./navigation/navigation"
+import Hero from "./hero/hero"
 
 const Header = ({ siteTitle }) => {
-  const logoImg = require("../images/logo_header_v2.png")
   return (
-    <header id="header">
-      <div className="headerImg">
-        <img src={logoImg} alt="" />
-      </div>
+    <header className="header">
       <Navigation />
+      <Hero />
     </header>
   )
 }
+
 Header.propTypes = {
   siteTitle: PropTypes.string,
 }
