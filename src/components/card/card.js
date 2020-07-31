@@ -22,6 +22,13 @@ const Card = props => {
 
   const slug = "/" + props.detailsSlug
 
+  const hightlightCard = (
+    <Link to={slug}>
+      <span className="tag is-light">Details</span>
+    </Link>
+  )
+  const hightlightCardClose = <span className="tag is-light">Details</span>
+
   return (
     <div className="card">
       <div className="card-image">

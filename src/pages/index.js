@@ -112,6 +112,7 @@ const IndexPage = ({ data }) => {
         key={event.node.id}
       >
         <Card
+          highlightCard={event.node.topEvent}
           detailsSlug={event.node.slug}
           eventTitle={event.node.name}
           eventDate={<Moment date={dateToFormat} format="D.M.YY HH:mm [Uhr]" />}
