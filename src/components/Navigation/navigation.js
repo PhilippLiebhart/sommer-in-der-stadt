@@ -21,18 +21,6 @@ const Navigation = props => {
   `)
 
   return (
-<<<<<<< HEAD
-    <nav>
-      <div className="container">
-        <input id="responsive-menu" type="checkbox" />
-        <label htmlFor="responsive-menu">
-          <span id="menu-icon" />
-        </label>
-        <div id="overlay" />
-        <ul>
-          <Link to="/">
-            <li>HOME</li>
-=======
     <nav
       className="navbar is-transparent is-fixed-top"
       role="navigation"
@@ -66,7 +54,6 @@ const Navigation = props => {
         <div className="navbar-start">
           <Link to="/" className="navbar-item">
             Start
->>>>>>> b21465de34e22c2b1b1087e90dd892a5dd2f6f0f
           </Link>
 
           <Link to="/events" className="navbar-item">
