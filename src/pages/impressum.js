@@ -37,7 +37,7 @@ const ImpressumPage = () => {
           Versicherers:
         </h4>
 
-        <h4>Studioliehart Breisacherstraße 3 81667 München</h4>
+        <h4>Studio Liebhart Breisacherstraße 3 81667 München</h4>
         <h4>Geltungsraum der Versicherung: Deutschland</h4>
 
         <h4 className="title is-5 mt-5">
