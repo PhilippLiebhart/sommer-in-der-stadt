@@ -12,8 +12,10 @@ const Marker = props => {
       <img style={{ width: props.markerWidth }} src={marker} alt="Marker" />
       <div
         style={{
-          width: "100px",
-          padding: "15px",
+          minWidth: "90px",
+          textAlign: "center",
+          padding: "5px",
+          fontSize: "9px",
           backgroundColor: "gray",
           color: "white",
         }}
