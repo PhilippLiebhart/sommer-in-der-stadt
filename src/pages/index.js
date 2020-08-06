@@ -89,6 +89,7 @@ const IndexPage = ({ data }) => {
       const dateToFormat = event.node.date
       return (
         <Card
+          isSliderCard={true}
           key={event.node.id}
           detailsSlug={event.node.slug}
           eventTitle={event.node.name}
@@ -116,6 +117,7 @@ const IndexPage = ({ data }) => {
         key={event.node.id}
       >
         <Card
+          isSliderCard={false}
           highlightCard={event.node.topEvent}
           detailsSlug={event.node.slug}
           eventTitle={event.node.name}

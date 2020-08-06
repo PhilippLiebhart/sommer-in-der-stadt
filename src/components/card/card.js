@@ -2,7 +2,26 @@ import React from "react"
 import "./card.scss"
 import { Link } from "gatsby"
 
-const Card = props => {
+const CardButtonLink = ({ slug, isSliderCard }) => {
+  console.log(slug)
+
+  let elem = null
+
+  if (isSliderCard) {
+    elem = (
+      <Link to={slug}>
+        <span className="tag is-light">Details</span>
+      </Link>
+    )
+  } else {
+    elem = <span className="tag is-light">Details</span>
+  }
+
+  return elem
+}
+
+const CardLinkHoc = props => {
+  const slug = "/" + props.detailsSlug
   const eventTypeList = props.eventTypeName.map((event, index) => {
     return (
       <li
@@ -20,16 +39,7 @@ const Card = props => {
     )
   })
 
-  const slug = "/" + props.detailsSlug
-
-  const hightlightCard = (
-    <Link to={slug}>
-      <span className="tag is-light">Details</span>
-    </Link>
-  )
-  const hightlightCardClose = <span className="tag is-light">Details</span>
-
-  return (
+  let elem = (
     <div className="card">
       <div className="card-image">
         <figure className="image is-4by3">
@@ -47,15 +57,23 @@ const Card = props => {
           <div className="">
             {props.eventDate}
             <div className="is-pulled-right">
-              <Link to={slug}>
-                <span className="tag is-light">Details</span>
-              </Link>
+              <CardButtonLink isSliderCard={props.isSliderCard} slug={slug} />
             </div>
           </div>
         </div>
       </div>
     </div>
   )
+
+  if (!props.isSliderCard) {
+    return <Link to={slug}>{elem}</Link>
+  } else {
+    return elem
+  }
+}
+
+const Card = props => {
+  return <CardLinkHoc {...props} />
 }
 
 export default Card
