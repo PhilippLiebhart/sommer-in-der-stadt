@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <>
       <div
-        className="section mt-5 mb-0 pt-5 pb-3"
+        className="section mt-6 mb-0 pt-5 pb-3"
         style={{ backgroundColor: "white" }}
       >
         <div className="columns is-multiline is-vcentered is-centered is-mobile is-desktop is-tablet">
@@ -69,8 +69,8 @@ const Footer = () => {
       <footer className="footer">
         <div className="content has-text-centered">
           <p>
-            &copy; {new Date().getFullYear()} - Built with &#10084; by BarPhi in
-            Munich
+            &copy; {new Date().getFullYear()} - Built with &#10084; by Barry &
+            Philipp in Munich
           </p>
         </div>
       </footer>
