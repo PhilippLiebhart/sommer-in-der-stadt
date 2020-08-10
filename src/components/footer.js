@@ -8,6 +8,10 @@ const Footer = () => {
         style={{ backgroundColor: "white" }}
       >
         <div className="columns is-multiline is-vcentered is-centered is-mobile is-desktop is-tablet">
+          <h5 class="subtitle is-5 mt-3">Sponsoren</h5>
+        </div>
+
+        <div className="columns is-multiline is-vcentered is-centered is-mobile is-desktop is-tablet">
           <div className="column is-narrow is-half-tablet is-full-mobile is-one-quarter-desktop">
             <a
               target="_blank"
