@@ -24,7 +24,7 @@ const EventCard = props => {
   const slug = "/" + props.detailsSlug
 
   return (
-    <section class="section">
+    <section className="section">
       <div className="container">
         <div className="column is-full-mobile is-full-desktop is-half-tablet is-one-quarter-widescreen is-one-quarter-fullhd">
           <div className="detailsImg">

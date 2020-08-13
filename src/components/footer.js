@@ -8,7 +8,7 @@ const Footer = () => {
         style={{ backgroundColor: "white" }}
       >
         <div className="columns is-multiline is-vcentered is-centered is-mobile is-desktop is-tablet">
-          <h5 class="subtitle is-5 mt-3">Sponsoren</h5>
+          <h5 className="subtitle is-5 mt-3">Sponsoren</h5>
         </div>
 
         <div className="columns is-multiline is-vcentered is-centered is-mobile is-desktop is-tablet">

@@ -3,7 +3,7 @@ import "./card.scss"
 import { Link } from "gatsby"
 
 const CardButtonLink = ({ slug, isSliderCard }) => {
-  console.log(slug)
+  // console.log(slug)
 
   let elem = null
 

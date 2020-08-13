@@ -7,9 +7,9 @@ var argv = parseArgs(process.argv.slice(2), { string: "pw" })
 console.log("Start with Deploy to FTP...")
 
 var config = {
-  user: "jam-webd3sign",
+  user: "philipp-liebhart",
   password: argv.pw,
-  host: "jam-webd3sign.de",
+  host: "philipp-liebhart.de",
   port: 21,
   localRoot: __dirname + "/public",
   remoteRoot: "/www/sub/gschichtn/kulturtage/",
