@@ -17,7 +17,7 @@ const EventTemplate = ({ data, pageContext, location }) => {
   // const richTextToHtml = documentToReactComponents(richtextJSON)
   const dateToFormat = pageContext.node.date
   return (
-    <section>
+    <section className="section">
       <Layout>
         <SEO title="Event" />
         <div className="container">
