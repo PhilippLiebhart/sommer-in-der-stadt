@@ -7,12 +7,18 @@ var argv = parseArgs(process.argv.slice(2), { string: "pw" })
 console.log("Start with Deploy to FTP...")
 
 var config = {
+<<<<<<< HEAD
   user: "philipp-liebhart",
   password: "087666",
   host: "philipp-liebhart.de",
+=======
+  user: "your-user",
+  password: argv.pw,
+  host: "your-host",
+>>>>>>> dc88c3b9400ddd32fc23efc10bc1fa9c39f6da96
   port: 21,
   localRoot: __dirname + "/public",
-  remoteRoot: "/www/sub/gschichtn/kulturtage/",
+  remoteRoot: "yout-ftp-folder",
   include: ["*", "**/*"],
   deleteRemote: true,
   forcePasv: true,
