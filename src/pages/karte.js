@@ -51,7 +51,7 @@ const KartePage = ({ data }) => {
           <div className="google-map-react-wrapper">
             <GoogleMapReact
               bootstrapURLKeys={{
-                key: "AIzaSyCrFJ7AhxG30WBcTLrm10qLCcpByXjutxI",
+                key: "GOOGLE-KEY",
               }}
               defaultCenter={{
                 lat: 48.1322963,
