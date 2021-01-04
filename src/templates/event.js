@@ -37,7 +37,7 @@ const EventTemplate = ({ data, pageContext, location }) => {
           <div style={{ height: "50vh", width: "100%", display: "block" }}>
             <GoogleMapReact
               bootstrapURLKeys={{
-                key: "AIzaSyCrFJ7AhxG30WBcTLrm10qLCcpByXjutxI",
+                key: "GOOGLE-KEY",
               }}
               defaultCenter={{
                 lat: pageContext.node.location.lat,
