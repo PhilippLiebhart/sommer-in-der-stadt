@@ -8,7 +8,7 @@ console.log("Start with Deploy to FTP...")
 
 var config = {
   user: "philipp-liebhart",
-  password: argv.pw,
+  password: "087666",
   host: "philipp-liebhart.de",
   port: 21,
   localRoot: __dirname + "/public",
